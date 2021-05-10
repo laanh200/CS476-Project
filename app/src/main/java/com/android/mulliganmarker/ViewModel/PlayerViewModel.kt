@@ -1,4 +1,4 @@
 package com.android.mulliganmarker.ViewModel
 
-class UserViewModel {
+class PlayerViewModel {
 }

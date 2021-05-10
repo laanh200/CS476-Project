@@ -8,6 +8,9 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationMenu
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 
 
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     //Drawer Layout
     private lateinit var drawer:DrawerLayout
 
+    private lateinit var bottomMenu: BottomNavigationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +44,19 @@ class MainActivity : AppCompatActivity() {
             val newFragment = HomeFragment()
             //Add the newly created fragment to the fragment container
             supportFragmentManager.beginTransaction().add(R.id.fragment_container, newFragment).commit()
+        }
+
+        bottomMenu = findViewById(R.id.bottomNav)
+        bottomMenu.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.menu_home ->{
+
+                }
+                R.id.add_new ->{
+
+                }
+            }
+            true
         }
     }
 
