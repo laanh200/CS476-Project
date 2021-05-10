@@ -31,6 +31,16 @@ class MainActivity : AppCompatActivity() {
         //hide the Back arrow of the main activity to the welcome screen
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
+
+        val homeFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+
+        //If the fragment container is empty
+        if(homeFragment == null){
+            //Create a fragment of the home fragment
+            val newFragment = HomeFragment()
+            //Add the newly created fragment to the fragment container
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container, newFragment).commit()
+        }
     }
 
 
