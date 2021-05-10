@@ -6,13 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.android.mulliganmarker.Model.Round
 import com.android.mulliganmarker.Model.Scorecard
-import com.android.mulliganmarker.Model.User
+import com.android.mulliganmarker.Model.Player
 
-@Database(entities = [Round::class, User::class, Scorecard::class], version = 1, exportSchema = false)
+@Database(entities = [Round::class, Player::class, Scorecard::class], version = 1, exportSchema = false)
 abstract class MulliganMarkerDatabase:RoomDatabase() {
 
     //Insert DAOs
-    abstract fun UserDao(): UserDAO
+    abstract fun PlayerDao(): PlayerDAO
     abstract fun RoundDao(): RoundDAO
     abstract fun ScorecardDao(): ScorecardDAO
 
