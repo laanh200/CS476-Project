@@ -1,4 +1,4 @@
-package com.android.mulliganmarker.Room
+package com.android.mulliganmarker.database
 
 import androidx.room.Dao
 
