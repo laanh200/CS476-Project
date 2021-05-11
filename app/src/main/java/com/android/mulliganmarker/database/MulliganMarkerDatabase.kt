@@ -1,20 +1,22 @@
-package com.android.mulliganmarker.Room
+package com.android.mulliganmarker.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.android.mulliganmarker.Model.Round
-import com.android.mulliganmarker.Model.Scorecard
-import com.android.mulliganmarker.Model.Player
+import androidx.room.TypeConverters
+import com.android.mulliganmarker.model.Round
+import com.android.mulliganmarker.model.Scorecard
+import com.android.mulliganmarker.model.Player
 
 @Database(entities = [Round::class, Player::class, Scorecard::class], version = 1, exportSchema = false)
+@TypeConverters(RoundTypeConverters::class)
 abstract class MulliganMarkerDatabase:RoomDatabase() {
 
     //Insert DAOs
-    abstract fun PlayerDao(): PlayerDAO
-    abstract fun RoundDao(): RoundDAO
-    abstract fun ScorecardDao(): ScorecardDAO
+    abstract fun playerDao(): PlayerDAO
+    abstract fun roundDao(): RoundDAO
+    abstract fun scorecardDao(): ScorecardDAO
 
     companion object{
         @Volatile
