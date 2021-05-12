@@ -5,11 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.android.mulliganmarker.model.Round
-import com.android.mulliganmarker.model.Scorecard
-import com.android.mulliganmarker.model.Player
+import com.android.mulliganmarker.model.*
 
-@Database(entities = [Round::class, Player::class, Scorecard::class], version = 1, exportSchema = false)
+@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 1, exportSchema = false)
 @TypeConverters(RoundTypeConverters::class)
 abstract class MulliganMarkerDatabase:RoomDatabase() {
 
@@ -17,6 +15,8 @@ abstract class MulliganMarkerDatabase:RoomDatabase() {
     abstract fun playerDao(): PlayerDAO
     abstract fun roundDao(): RoundDAO
     abstract fun scorecardDao(): ScorecardDAO
+    abstract fun courseDao(): CourseDAO
+    abstract fun teeBoxDao(): TeeBoxDAO
 
     companion object{
         @Volatile
