@@ -9,13 +9,13 @@ import java.util.*
 @Entity(tableName = "RoundTable",
         foreignKeys = [ForeignKey(
                 entity = Course::class,
-                parentColumns = arrayOf("id"),
+                parentColumns = arrayOf("course_id"),
                 childColumns = arrayOf("course_id"),
                 onDelete = ForeignKey.SET_NULL,
                 onUpdate = ForeignKey.CASCADE)]
 )
 data class Round(
-        @PrimaryKey(autoGenerate = true) val id: Int,
+        @PrimaryKey(autoGenerate = true) val round_id: Int,
         @ColumnInfo(index = true) val course_id: Int,
         var date: Date
 )

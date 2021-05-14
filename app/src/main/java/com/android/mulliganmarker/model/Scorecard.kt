@@ -8,25 +8,25 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "ScorecardTable",
         foreignKeys = [ForeignKey(
                 entity = Round::class,
-                parentColumns = arrayOf("id"),
+                parentColumns = arrayOf("round_id"),
                 childColumns = arrayOf("round_id"),
                 onDelete = ForeignKey.SET_NULL,
                 onUpdate = ForeignKey.CASCADE),
         ForeignKey(
                 entity = Player::class,
-                parentColumns = arrayOf("id"),
+                parentColumns = arrayOf("player_id"),
                 childColumns = arrayOf("player_id"),
                 onDelete = ForeignKey.SET_NULL,
                 onUpdate = ForeignKey.CASCADE),
         ForeignKey(
                 entity = TeeBox::class,
-                parentColumns = arrayOf("id"),
+                parentColumns = arrayOf("tee_box_id"),
                 childColumns = arrayOf("tee_box_id"),
                 onDelete = ForeignKey.SET_NULL,
                 onUpdate = ForeignKey.CASCADE)]
 )
 data class Scorecard(
-        @PrimaryKey(autoGenerate = true) val id: Int,
+        @PrimaryKey(autoGenerate = true) val score_card_id: Int,
         @ColumnInfo(index = true) val round_id: Int,
         @ColumnInfo(index = true) val player_id: Int,
         @ColumnInfo(index = true) val tee_box_id: Int,
