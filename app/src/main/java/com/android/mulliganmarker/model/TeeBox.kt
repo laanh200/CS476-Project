@@ -8,13 +8,13 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "TeeBoxTable",
         foreignKeys = [ForeignKey(
                 entity = Course::class,
-                parentColumns = arrayOf("id"),
+                parentColumns = arrayOf("course_id"),
                 childColumns = arrayOf("course_id"),
                 onDelete = ForeignKey.SET_NULL,
                 onUpdate = ForeignKey.CASCADE)]
 )
 data class TeeBox (
-        @PrimaryKey(autoGenerate = true) val id: Int,
+        @PrimaryKey(autoGenerate = true) val tee_box_id: Int,
         @ColumnInfo(index = true) val course_id: Int,
         var name: String,
         var color: String,

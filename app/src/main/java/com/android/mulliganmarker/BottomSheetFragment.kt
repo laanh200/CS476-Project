@@ -33,6 +33,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         }
         newPlayerButton.setOnClickListener {
 
+            //childFragmentManager.beginTransaction().replace(R.id.fragment_container,NewPlayerFragment()).commit()
         }
     }
 
