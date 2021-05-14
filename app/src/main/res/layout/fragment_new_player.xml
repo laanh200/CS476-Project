@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:text="@={playerViewModel.playerModel.first_name}"
+                android:text="@={playerViewModel.playerFirstName}"
                 android:maxLength="20" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:text="@={playerViewModel.playerModel.last_name}"
+                android:text="@={playerViewModel.playerLastName}"
                 android:maxLength="20" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +87,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{playerViewModel.playerModel.email}"
+                android:text="@{playerViewModel.playerEmail}"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:text="@{playerViewModel.playerModel.phone_number}"
+                android:text="@{playerViewModel.playerPhoneNumber}"
                 android:maxLength="9" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,7 +134,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{playerViewModel.playerModel.handicap}"
+                android:text="@{playerViewModel.playerHandicap}"
                 android:hint="0"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>

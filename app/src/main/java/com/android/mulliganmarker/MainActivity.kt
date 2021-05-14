@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.internal.NavigationMenu
 import com.google.android.material.navigation.NavigationView
 
 
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     //Drawer Layout
     private lateinit var drawer:DrawerLayout
+
 
     private lateinit var bottomMenu: BottomNavigationView
 
@@ -39,6 +41,17 @@ class MainActivity : AppCompatActivity() {
             val newFragment = HomeFragment()
             //Add the newly created fragment to the fragment container
             supportFragmentManager.beginTransaction().add(R.id.fragment_container, newFragment).commit()
+        }
+
+        navView  = findViewById(R.id.list_item_menu)
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.player_list ->{
+
+                }
+
+            }
+            true
         }
 
         bottomMenu = findViewById(R.id.bottomNav)
