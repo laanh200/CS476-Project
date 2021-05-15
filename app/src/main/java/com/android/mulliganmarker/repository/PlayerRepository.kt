@@ -3,6 +3,7 @@ package com.android.mulliganmarker.repository
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.android.mulliganmarker.NewPlayerFragment
 import com.android.mulliganmarker.database.MulliganMarkerDatabase
 import com.android.mulliganmarker.database.PlayerDAO
 import com.android.mulliganmarker.model.Player
@@ -23,7 +24,7 @@ class PlayerRepository(application: Application) {
 
     fun addPlayer(player: Player){
         CoroutineScope(Dispatchers.IO).launch {
-            playerDao?.addPlayer(player)
+            playerDao.addPlayer(player)
         }
     }
 
