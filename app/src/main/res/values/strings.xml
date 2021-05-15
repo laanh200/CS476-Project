@@ -6,4 +6,8 @@
     <string name="new_round">New Round</string>
     <string name="new_player">New Player</string>
     <string name="create_new_title">Create new</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 </resources>
