@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         //If the fragment container is empty
         if(homeFragment == null){
             //Create a fragment of the home fragment
-          //  val newFragment = HomeFragment()
-              val newFragment = NewPlayerFragment()
+           val newFragment = HomeFragment()
+           //   val newFragment = NewPlayerFragment()
             //Add the newly created fragment to the fragment container
             supportFragmentManager.beginTransaction().add(R.id.fragment_container, newFragment).commit()
 
