@@ -64,12 +64,13 @@ class NewPlayerFragment : Fragment() {
         var handicap = binding.newPlayerHandicap.text.toString().toInt()
 
         //Check if the two important fields are blank
-        if(!(firstName).isNullOrBlank() &&  !(lastName).isNullOrBlank()){
+        if(!(firstName).isNullOrBlank() &&  !(lastName).isNullOrBlank()) {
             val newPlayer = Player(0,firstName,lastName, email,phoneNum,handicap)
             playerViewModel.insertPlayer(newPlayer)
 
             Toast.makeText(activity, "Successfully added new player!", Toast.LENGTH_SHORT).show()
-        }else{
+        }
+        else {
             Toast.makeText(activity,"Failure in adding new player. Player needs both first and last name.", Toast.LENGTH_SHORT).show()
         }
     }
