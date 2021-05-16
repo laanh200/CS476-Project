@@ -15,7 +15,7 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomNav"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
@@ -31,6 +31,8 @@
             app:elevation="2dp"
             app:itemIconSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/navigation_menu_bottom" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

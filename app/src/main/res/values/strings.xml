@@ -10,4 +10,12 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="email_hint">Email</string>
+    <string name="phone_number_hint">Phone Number</string>
+    <string name="handicap_hint">Handicap</string>
+
+    <string name="save">Save</string>
+
 </resources>

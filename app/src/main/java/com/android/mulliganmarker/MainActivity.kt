@@ -11,7 +11,7 @@ import com.google.android.material.internal.NavigationMenu
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks {
 
 
     //Navigation view
@@ -28,18 +28,19 @@ class MainActivity : AppCompatActivity() {
         //hide the Back arrow of the main activity to the welcome screen
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
-        val homeFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
 
         //If the fragment container is empty
-        if(homeFragment == null){
+        if(currentFragment == null){
             //Create a fragment of the home fragment
-           val newFragment = HomeFragment()
-           //   val newFragment = NewPlayerFragment()
+           val fragment = HomeFragment()
             //Add the newly created fragment to the fragment container
-            supportFragmentManager.beginTransaction().add(R.id.fragment_container, newFragment).commit()
+            supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment_container, fragment)
+                    .commit()
 
         }
-
 
         navView  = findViewById(R.id.nav_view)
         navView.setNavigationItemSelectedListener {
@@ -58,7 +59,12 @@ class MainActivity : AppCompatActivity() {
         bottomMenu.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.menu_home -> {
-
+                    val fragment = HomeFragment()
+                    //Add the newly created fragment to the fragment container
+                    supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, fragment)
+                            .commit()
                 }
                 R.id.add_new -> {
                     val bottomSheetFragment = BottomSheetFragment()
@@ -69,5 +75,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onNewPlayer() {
+        val fragment = NewPlayerFragment()
+        //Replace the newly created fragment to the fragment container
+        supportFragmentManager
+                .beginTransaction()
+                .remove(supportFragmentManager.findFragmentByTag("BottomSheetDialogMenu")!!)
+                .replace(R.id.fragment_container, fragment)
+                .commit()
+    }
 
+    override fun onNewRound() {
+        TODO("Not yet implemented")
+    }
 }

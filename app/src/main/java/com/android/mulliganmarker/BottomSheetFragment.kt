@@ -1,5 +1,6 @@
 package com.android.mulliganmarker
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +12,21 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
+    interface Callbacks {
+        fun onNewPlayer()
+        fun onNewRound()
+    }
+
+    private var callbacks: Callbacks? = null
+
     private lateinit var newRoundButton: Button
     private lateinit var newPlayerButton: Button
+
+    override fun onAttach(context: Context) {
+
+        super.onAttach(context)
+        callbacks = context as Callbacks?
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -29,12 +43,17 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         newRoundButton.setOnClickListener {
-
+            callbacks?.onNewRound()
         }
         newPlayerButton.setOnClickListener {
-
-            //childFragmentManager.beginTransaction().replace(R.id.fragment_container,NewPlayerFragment()).commit()
+            callbacks?.onNewPlayer()
         }
+    }
+
+    override fun onDetach() {
+
+        super.onDetach()
+        callbacks = null
     }
 
 }
