@@ -25,7 +25,10 @@ class PlayerViewModel(application: Application): AndroidViewModel(application){
 
     fun insertPlayer(player: Player){
         playerRepository.addPlayer(player)
+    }
 
+    fun deletePlayer(player: Player){
+        playerRepository.deletePlayer(player)
     }
 /*
     val playerModel: MutableLiveData<Player> by lazy {

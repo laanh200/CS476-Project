@@ -1,5 +1,6 @@
 package com.android.mulliganmarker
 
+import android.content.Context
 import android.os.Bundle
 
 import androidx.fragment.app.Fragment
@@ -16,6 +17,11 @@ import com.android.mulliganmarker.viewmodel.PlayerViewModel
 
 
 class NewPlayerFragment : Fragment() {
+
+    interface CallBacks{
+        fun onHome()
+    }
+    private var callback: CallBacks? = null
 
     private val binding: FragmentNewPlayerBinding by viewBinding()
 
@@ -73,5 +79,16 @@ class NewPlayerFragment : Fragment() {
         else {
             Toast.makeText(activity,"Failure in adding new player. Player needs both first and last name.", Toast.LENGTH_SHORT).show()
         }
+        callback?.onHome()
+    }
+    override fun onAttach(context: Context) {
+
+        super.onAttach(context)
+        callback = context as CallBacks
+    }
+    override fun onDetach() {
+
+        super.onDetach()
+        callback = null
     }
 }
