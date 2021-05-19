@@ -27,13 +27,13 @@ data class TeeBox (
         var hole7_yardage: Int,
         var hole8_yardage: Int,
         var hole9_yardage: Int,
-        var hole10_yardage: Int,
-        var hole11_yardage: Int,
-        var hole12_yardage: Int,
-        var hole13_yardage: Int,
-        var hole14_yardage: Int,
-        var hole15_yardage: Int,
-        var hole16_yardage: Int,
-        var hole17_yardage: Int,
-        var hole18_yardage: Int
+        var hole10_yardage: Int?,
+        var hole11_yardage: Int?,
+        var hole12_yardage: Int?,
+        var hole13_yardage: Int?,
+        var hole14_yardage: Int?,
+        var hole15_yardage: Int?,
+        var hole16_yardage: Int?,
+        var hole17_yardage: Int?,
+        var hole18_yardage: Int?
 )

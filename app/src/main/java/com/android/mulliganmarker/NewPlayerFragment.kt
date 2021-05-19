@@ -19,8 +19,9 @@ import com.android.mulliganmarker.viewmodel.PlayerViewModel
 class NewPlayerFragment : Fragment() {
 
     interface CallBacks{
-        fun onHome()
+        fun onPlayerAdded()
     }
+
     private var callback: CallBacks? = null
 
     private val binding: FragmentNewPlayerBinding by viewBinding()
@@ -31,24 +32,7 @@ class NewPlayerFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
        return inflater.inflate(R.layout.fragment_new_player,container,false)
-/*
-      playerViewModel = ViewModelProvider(this).get(PlayerViewModel::class.java)
 
-     //   playerViewModel = ViewModelProvider.AndroidViewModelFactory(Application()).create(PlayerViewModel::class.java)
-
-        firstName = view.findViewById(R.id.textInputNewPlayerFirstName)
-        lastName = view.findViewById(R.id.textInputNewPlayerLastName)
-        email = view.findViewById(R.id.textInputNewPlayerEmail)
-        phoneNum = view.findViewById(R.id.textInputNewPlayerPhoneNum)
-        handicap = view.findViewById(R.id.textInputNewPlayerHandicap)
-
-        saveBTN = view.findViewById(R.id.save_new_player_BTN)
-
-        saveBTN.setOnClickListener {
-            addNewPlayer()
-        }
-        return view
- */
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,7 +45,7 @@ class NewPlayerFragment : Fragment() {
         }
     }
 
-    private fun addNewPlayer(){
+    private fun addNewPlayer() {
         //Create variables to store the data from the text views and convert to appropriate type
         var firstName = binding.newPlayerFirstName.text.toString()
         var lastName = binding.newPlayerLastName.text.toString()
@@ -79,13 +63,16 @@ class NewPlayerFragment : Fragment() {
         else {
             Toast.makeText(activity,"Failure in adding new player. Player needs both first and last name.", Toast.LENGTH_SHORT).show()
         }
-        callback?.onHome()
+
+        callback?.onPlayerAdded()
     }
+
     override fun onAttach(context: Context) {
 
         super.onAttach(context)
         callback = context as CallBacks
     }
+
     override fun onDetach() {
 
         super.onDetach()
