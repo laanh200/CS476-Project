@@ -8,5 +8,5 @@ data class Course (
         @PrimaryKey(autoGenerate = true) val course_id: Int,
         var name: String,
         var location: String,
-        var phone_number: String
+        var phone_number: String?
 )

@@ -17,10 +17,19 @@
     <string name="handicap_hint">Handicap</string>
 
     <string name="save">Save</string>
+    <string name="start">Start</string>
 
     <string name="player_firstName">First Name</string>
     <string name="player_lastName">Last Name</string>
     <string name="player_email">Email</string>
     <string name="player_phoneNumber">Phone Number</string>
     <string name="player_handicap">Handicap</string>
+
+    <string name="round_course">Course</string>
+    <string name="round_date">Date</string>
+
+    <string name="course_name">Name</string>
+    <string name="course_location">Location</string>
+
+    <string name="course_picker_hint">Select the course</string>
 </resources>

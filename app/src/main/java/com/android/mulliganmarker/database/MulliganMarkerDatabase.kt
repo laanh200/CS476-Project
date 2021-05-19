@@ -7,9 +7,11 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.android.mulliganmarker.model.*
 
-@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 1, exportSchema = false)
+private const val DATABASE_NAME = "mulligan-marker-database"
+
+@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 2, exportSchema = true)
 @TypeConverters(RoundTypeConverters::class)
-abstract class MulliganMarkerDatabase:RoomDatabase() {
+abstract class MulliganMarkerDatabase : RoomDatabase() {
 
     //Insert DAOs
     abstract fun playerDao(): PlayerDAO
@@ -33,11 +35,12 @@ abstract class MulliganMarkerDatabase:RoomDatabase() {
             }
             //Creating a new instance if not exist
             synchronized(this){
-                val instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        MulliganMarkerDatabase::class.java,
-                        "Mulligan_Marker_Database"
-                ).fallbackToDestructiveMigration().build()
+                val instance = Room
+                        .databaseBuilder(context.applicationContext,
+                                MulliganMarkerDatabase::class.java,
+                            DATABASE_NAME)
+                        .createFromAsset("database/GolfCourses.db")
+                        .build()
                 //Set the instance equal to the brand new created instance
                 INSTANCE = instance
                 //return the new instance

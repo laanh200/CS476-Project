@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.android.mulliganmarker.databinding.ActivityMainBinding
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,7 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlayerFragment.CallBacks {
+class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlayerFragment.CallBacks, NewRoundFragment.Callbacks {
 
     //Navigation view
     private lateinit var navView: NavigationView
@@ -74,7 +75,9 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
             when(it.itemId){
                 R.id.player_list ->{
                     drawer.closeDrawer(GravityCompat.START)
-                    onPlayerList()
+
+                    val fragment = PlayerListFragment()
+                    replaceCurrentFragment(fragment)
                 }
                 R.id.round_history ->{
                     drawer.closeDrawer(GravityCompat.START)
@@ -89,11 +92,7 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
             when(it.itemId){
                 R.id.menu_home -> {
                     val fragment = HomeFragment()
-                    //Add the newly created fragment to the fragment container
-                    supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.fragment_container, fragment)
-                            .commit()
+                    replaceCurrentFragment(fragment)
                 }
                 R.id.add_new -> {
                     val bottomSheetFragment = BottomSheetFragment()
@@ -104,35 +103,45 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
         }
     }
 
-    override fun onNewPlayer() {
-        val fragment = NewPlayerFragment()
-        //Replace the newly created fragment to the fragment container
-        supportFragmentManager
-                .beginTransaction()
-                .remove(supportFragmentManager.findFragmentByTag("BottomSheetDialogMenu")!!)
-                .replace(R.id.fragment_container, fragment)
-                .commit()
-    }
-    override fun onHome(){
-        val fragment = HomeFragment()
-        //Add the newly created fragment to the fragment container
-        supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit()
-    }
-    private fun onPlayerList(){
-        val fragment = PlayerListFragment()
-
+    private fun replaceCurrentFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container,fragment)
+            .replace(R.id.fragment_container, fragment)
             .commit()
     }
 
-    override fun onNewRound() {
-        TODO("Not yet implemented")
+    // Callback functions
+
+    override fun onNewPlayer() {
+        val fragment = NewPlayerFragment()
+
+        supportFragmentManager
+            .beginTransaction()
+            .remove(supportFragmentManager.findFragmentByTag("BottomSheetDialogMenu")!!)
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
+
+    override fun onPlayerAdded() {
+        val fragment = HomeFragment()
+        replaceCurrentFragment(fragment)
+    }
+
+    override fun onNewRound() {
+        val fragment = NewRoundFragment()
+
+        supportFragmentManager
+            .beginTransaction()
+            .remove(supportFragmentManager.findFragmentByTag("BottomSheetDialogMenu")!!)
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
+    override fun onRoundStarted() {
+        val fragment = HomeFragment()
+        replaceCurrentFragment(fragment)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //Return true if the menu item is being selected
         if(toggle.onOptionsItemSelected(item)){
