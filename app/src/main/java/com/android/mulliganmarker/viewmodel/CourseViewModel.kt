@@ -13,6 +13,6 @@ class CourseViewModel(application: Application): AndroidViewModel(application) {
 
     private val courseRepository = CourseRepository(application)
 
-    val coursesListLiveData = courseRepository.getCourses()
+    val coursesListLiveData = courseRepository.getAllCourses()
 
 }

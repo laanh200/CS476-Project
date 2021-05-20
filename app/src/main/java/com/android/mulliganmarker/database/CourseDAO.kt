@@ -10,6 +10,6 @@ import java.util.*
 interface CourseDAO {
 
     @Query("SELECT * FROM CourseTable ORDER BY name ASC")
-    fun getCourses(): LiveData<List<Course>>
+    fun getAllCourses(): LiveData<List<Course>>
 
 }
