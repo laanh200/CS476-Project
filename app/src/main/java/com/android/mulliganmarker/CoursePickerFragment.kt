@@ -1,7 +1,5 @@
 package com.android.mulliganmarker
 
-import android.content.ContentValues
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -43,7 +41,6 @@ class CoursePickerFragment : DialogFragment() {
 
         courseViewModel = ViewModelProvider(this).get(CourseViewModel::class.java)
 
-
         binding.coursePickerRecyclerview.layoutManager = LinearLayoutManager(context)
         binding.coursePickerRecyclerview.adapter = adapter
 
@@ -76,7 +73,6 @@ class CoursePickerFragment : DialogFragment() {
                     }
                 }
         )
-
     }
 
     /* Wraps Item View for the RecyclerView

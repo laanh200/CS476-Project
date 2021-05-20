@@ -18,6 +18,6 @@ class CourseRepository(application: Application) {
 
     // database functions
 
-    fun getCourses(): LiveData<List<Course>> = courseDao.getCourses()
+    fun getAllCourses(): LiveData<List<Course>> = courseDao.getAllCourses()
 
 }
