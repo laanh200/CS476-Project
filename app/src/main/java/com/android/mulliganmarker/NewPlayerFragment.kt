@@ -59,12 +59,11 @@ class NewPlayerFragment : Fragment() {
             playerViewModel.insertPlayer(newPlayer)
 
             Toast.makeText(activity, "Successfully added new player!", Toast.LENGTH_SHORT).show()
+            callback?.onPlayerAdded()
         }
         else {
             Toast.makeText(activity,"Failure in adding new player. Player needs both first and last name.", Toast.LENGTH_SHORT).show()
         }
-
-        callback?.onPlayerAdded()
     }
 
     override fun onAttach(context: Context) {

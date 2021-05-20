@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
     android:background="@drawable/layout_border"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:id="@+id/course_picker_layout">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/course_name"

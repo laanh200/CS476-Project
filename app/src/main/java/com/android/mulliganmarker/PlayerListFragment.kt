@@ -51,11 +51,13 @@ class PlayerListFragment : Fragment() {
         //Set layout equal to recycler view layout
         binding.playerListRecyclerView.layoutManager =  layoutManager
 
+
         mPlayerViewMode = ViewModelProvider(this).get(PlayerViewModel::class.java)
 
         mPlayerViewMode.readAllPlayers?.observe(viewLifecycleOwner, Observer{
             adapter.setData(it)
         })
+
 
         /*Item touch helper to use as a delete item functionality
         Swipe left or right on the item will delete the item off the recycler
@@ -103,7 +105,7 @@ class PlayerListFragment : Fragment() {
                 }else{
                     //If they release the swipe then turn the background back to default
                     itemTarget.setBackgroundColor(0)
-                    itemTarget.setBackgroundResource(R.drawable.layout_border)
+                  //  itemTarget.setBackgroundResource(R.drawable.layout_border)
                 }
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             }
@@ -114,7 +116,7 @@ class PlayerListFragment : Fragment() {
     //This function is used to call to delete the expense item in the expenseList database
     private fun deleteItem(viewHolder: RecyclerView.ViewHolder, adapter: PlayerListAdapter){
 
-        //Create variable and store the viewholder position of swiped item
+        //Create variable and store the view holder position of swiped item
         val position = viewHolder.adapterPosition
 
         //Create an player target variable and call the get player at position by using position as parameter
