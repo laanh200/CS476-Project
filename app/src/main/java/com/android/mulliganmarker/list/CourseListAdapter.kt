@@ -3,6 +3,7 @@ package com.android.mulliganmarker.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.R
 
@@ -42,5 +43,7 @@ class CourseListAdapter ( var courses: List<Course>, private val onItemClicked: 
     override fun getItemCount(): Int {
         return courses.size
     }
+
+
 
 }
