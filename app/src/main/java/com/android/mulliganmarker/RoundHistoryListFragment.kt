@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.FragmentRoundHistoryListBinding
 import com.android.mulliganmarker.databinding.RoundCustomRowBinding
+import com.android.mulliganmarker.list.RoundHistoryListAdapter
 import com.android.mulliganmarker.model.Course
 
 import com.android.mulliganmarker.model.Round
@@ -28,10 +29,8 @@ class RoundHistoryListFragment : Fragment() {
     private val binding: FragmentRoundHistoryListBinding by viewBinding()
 
     private lateinit var roundViewModel: RoundViewModel
-    private lateinit var courseViewModel: CourseViewModel
-    private var courseName: String?=null
-
-    private var adapter: RoundHistoryListAdapter?=null
+//    private lateinit var courseViewModel: CourseViewModel
+//    private var adapter: RoundHistoryListAdapter?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -44,7 +43,7 @@ class RoundHistoryListFragment : Fragment() {
 
         binding.roundHistoryListRecyclerView
 
-        //val adapter = RoundHistoryListAdapter()
+        val adapter = RoundHistoryListAdapter()
 
         binding.roundHistoryListRecyclerView.adapter = adapter
 
@@ -58,18 +57,21 @@ class RoundHistoryListFragment : Fragment() {
 
         roundViewModel = ViewModelProvider(this).get(RoundViewModel::class.java)
 
-        /*
         roundViewModel.roundhistoryList.observe(viewLifecycleOwner, Observer {
                 adapter.setData(it)
+                println("Number of item: " + adapter.itemCount)
             }
-        )*/
+        )
 
+        /*
         roundViewModel.roundhistoryList.observe(viewLifecycleOwner, Observer {
             adapter = RoundHistoryListAdapter(it)
             binding.roundHistoryListRecyclerView.adapter = adapter
         })
-    }
 
+         */
+    }
+/*
     inner class MyViewHolder(view:View): RecyclerView.ViewHolder(binding.root) {
         private lateinit var roundHistory : Round
         fun bind(round:Round)
@@ -109,4 +111,6 @@ class RoundHistoryListFragment : Fragment() {
         }
 
     }
+
+ */
 }

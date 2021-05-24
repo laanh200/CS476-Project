@@ -87,7 +87,7 @@ class PlayerListFragment : Fragment() {
                     var itemTarget: View = viewHolder.itemView
                     //When they are swiped but answered no then turn back the background
                     itemTarget.setBackgroundColor(0)
-                    itemTarget.setBackgroundResource(R.drawable.layout_border)
+                 //   itemTarget.setBackgroundResource(R.drawable.layout_border)
                 }
                 //create and show the dialog alert
                 builder?.create()?.show()

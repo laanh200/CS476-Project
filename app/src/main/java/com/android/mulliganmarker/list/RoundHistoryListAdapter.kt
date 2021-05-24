@@ -9,16 +9,13 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.RoundCustomRowBinding
 import com.android.mulliganmarker.model.Course
+import com.android.mulliganmarker.model.CourseWithRound
 import com.android.mulliganmarker.model.Round
 import com.android.mulliganmarker.viewmodel.CourseViewModel
 import java.text.DateFormat
 
-/*
 class RoundHistoryListAdapter:RecyclerView.Adapter<RoundHistoryListAdapter.MyViewHolder>() {
-    private var roundHistoryList = emptyList<Round>()
-    private lateinit var courseViewModel: CourseViewModel
-    private var courseName: String?=null
-
+    private var roundHistoryList = emptyList<CourseWithRound>()
 
     class MyViewHolder(val binding: RoundCustomRowBinding):RecyclerView.ViewHolder(binding.root) {
     }
@@ -30,22 +27,17 @@ class RoundHistoryListAdapter:RecyclerView.Adapter<RoundHistoryListAdapter.MyVie
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         var currentRound = roundHistoryList[position]
 
-        courseViewModel = ViewModelProvider().get(CourseViewModel::class.java)
-
-        courseName = courseViewModel.getCourseName(position)
-
         with(holder){
-            binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(currentRound.date)
-            binding.courseItemName.text = courseName
+            binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(currentRound.roundsList[position].date)
+            binding.courseItemName.text = currentRound.course.name
         }
     }
 
     override fun getItemCount(): Int {
         return roundHistoryList.size
     }
-    fun setData(newRoundList: List<Round>){
+    fun setData(newRoundList: List<CourseWithRound>){
         this.roundHistoryList = newRoundList
-
+        notifyDataSetChanged()
     }
-
-}*/
+}
