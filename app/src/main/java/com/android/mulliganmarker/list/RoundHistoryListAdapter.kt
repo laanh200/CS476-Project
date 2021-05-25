@@ -2,20 +2,14 @@ package com.android.mulliganmarker.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.RoundCustomRowBinding
-import com.android.mulliganmarker.model.Course
-import com.android.mulliganmarker.model.CourseWithRound
 import com.android.mulliganmarker.model.Round
-import com.android.mulliganmarker.viewmodel.CourseViewModel
+import com.android.mulliganmarker.model.RoundWithCourse
 import java.text.DateFormat
 
 class RoundHistoryListAdapter:RecyclerView.Adapter<RoundHistoryListAdapter.MyViewHolder>() {
-    private var roundHistoryList = emptyList<CourseWithRound>()
+    private var roundHistoryList = emptyList<RoundWithCourse>()
 
     class MyViewHolder(val binding: RoundCustomRowBinding):RecyclerView.ViewHolder(binding.root) {
     }
@@ -25,19 +19,22 @@ class RoundHistoryListAdapter:RecyclerView.Adapter<RoundHistoryListAdapter.MyVie
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var currentRound = roundHistoryList[position]
+        var currentCourse = roundHistoryList[position]
 
-        with(holder){
-            binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(currentRound.roundsList[position].date)
-            binding.courseItemName.text = currentRound.course.name
+            with(holder) {
+                binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(currentCourse.roundsList.date)
+                binding.courseItemName.text = currentCourse.course.name
         }
     }
 
     override fun getItemCount(): Int {
         return roundHistoryList.size
     }
-    fun setData(newRoundList: List<CourseWithRound>){
-        this.roundHistoryList = newRoundList
+    fun setData(newRoundWithCourseList: List<RoundWithCourse>){
+        this.roundHistoryList = newRoundWithCourseList
         notifyDataSetChanged()
+    }
+    fun getRoundAtPosition(position: Int): Round {
+        return roundHistoryList[position].roundsList
     }
 }
