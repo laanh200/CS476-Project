@@ -20,4 +20,9 @@ class CourseRepository(application: Application) {
 
     fun getAllCourses(): LiveData<List<Course>> = courseDao.getAllCourses()
 
+
+    fun getName(id:Int):String{
+            return courseDao.getName(id)
+        }
+
 }

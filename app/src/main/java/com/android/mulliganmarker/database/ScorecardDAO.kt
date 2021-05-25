@@ -10,4 +10,5 @@ interface ScorecardDAO {
 
     @Query("SELECT * FROM ScorecardTable ORDER BY score_card_id DESC")
     fun getAllScoreCards(): LiveData<List<Scorecard>>
+
 }
