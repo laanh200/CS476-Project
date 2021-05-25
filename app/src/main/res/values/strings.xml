@@ -32,4 +32,6 @@
     <string name="course_location">Location</string>
 
     <string name="course_picker_hint">Select the course</string>
+
+    <string name="round_history_Title">Round history</string>
 </resources>

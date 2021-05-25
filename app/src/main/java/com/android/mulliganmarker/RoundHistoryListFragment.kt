@@ -14,34 +14,34 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.mulliganmarker.databinding.FragmentPlayerListBinding
-import com.android.mulliganmarker.list.PlayerListAdapter
-import com.android.mulliganmarker.model.Player
-import com.android.mulliganmarker.viewmodel.PlayerViewModel
+import com.android.mulliganmarker.databinding.FragmentRoundHistoryListBinding
+import com.android.mulliganmarker.list.RoundHistoryListAdapter
+import com.android.mulliganmarker.model.Round
+import com.android.mulliganmarker.model.RoundWithCourse
+import com.android.mulliganmarker.viewmodel.RoundViewModel
 
 
-class PlayerListFragment : Fragment() {
 
-    private val binding: FragmentPlayerListBinding by viewBinding()
+class RoundHistoryListFragment : Fragment() {
 
-    private lateinit var mPlayerViewMode: PlayerViewModel
+    private val binding: FragmentRoundHistoryListBinding by viewBinding()
+
+    private lateinit var roundViewModel: RoundViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_player_list, container, false)
-
+        return inflater.inflate(R.layout.fragment_round_history_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.playerListRecyclerView
+        binding.roundHistoryListRecyclerView
 
-        val adapter = PlayerListAdapter()
+        val adapter = RoundHistoryListAdapter()
 
-        //Set the recycler view adapter equal to the expense list adapter
-        binding.playerListRecyclerView.adapter = adapter
+        binding.roundHistoryListRecyclerView.adapter = adapter
 
         val layoutManager = LinearLayoutManager(context)
 
@@ -49,20 +49,15 @@ class PlayerListFragment : Fragment() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
 
         //Set layout equal to recycler view layout
-        binding.playerListRecyclerView.layoutManager =  layoutManager
+        binding.roundHistoryListRecyclerView.layoutManager =  layoutManager
 
+        roundViewModel = ViewModelProvider(this).get(RoundViewModel::class.java)
 
-        mPlayerViewMode = ViewModelProvider(this).get(PlayerViewModel::class.java)
-
-        mPlayerViewMode.readAllPlayers?.observe(viewLifecycleOwner, Observer{
-            adapter.setData(it)
-        })
-
-
-        /*Item touch helper to use as a delete item functionality
-        Swipe left or right on the item will delete the item off the recycler
-        delete from database
-     */
+        roundViewModel.roundhistoryList.observe(viewLifecycleOwner, Observer {
+                adapter.setData(it)
+                println("Number of item: " + adapter.itemCount)
+            }
+        )
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             //Move doesn't matter
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
@@ -73,8 +68,8 @@ class PlayerListFragment : Fragment() {
 
                 //Create an alert dialog when the user swipe on an item
                 val builder = context?.let { AlertDialog.Builder(it) }
-                builder?.setTitle("Delete player?")
-                builder?.setMessage("Are you sure you want to delete the current selected player?")?.setCancelable(false)
+                builder?.setTitle("Delete round?")
+                builder?.setMessage("Are you sure you want to delete the current selected round history?")?.setCancelable(false)
                 //If they select the yes option
                 builder?.setPositiveButton("Yes") { _, _ ->
                     //Call function to delete the swiped item
@@ -87,7 +82,7 @@ class PlayerListFragment : Fragment() {
                     var itemTarget: View = viewHolder.itemView
                     //When they are swiped but answered no then turn back the background
                     itemTarget.setBackgroundColor(0)
-                 //   itemTarget.setBackgroundResource(R.drawable.layout_border)
+                    //   itemTarget.setBackgroundResource(R.drawable.layout_border)
                 }
                 //create and show the dialog alert
                 builder?.create()?.show()
@@ -105,28 +100,27 @@ class PlayerListFragment : Fragment() {
                 }else{
                     //If they release the swipe then turn the background back to default
                     itemTarget.setBackgroundColor(0)
-                  //  itemTarget.setBackgroundResource(R.drawable.layout_border)
                 }
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             }
             //Attach the item touch helper to the recycler view
-        }).attachToRecyclerView(binding.playerListRecyclerView)
+        }).attachToRecyclerView(binding.roundHistoryListRecyclerView)
     }
 
     //This function is used to call to delete the expense item in the expenseList database
-    private fun deleteItem(viewHolder: RecyclerView.ViewHolder, adapter: PlayerListAdapter){
+    private fun deleteItem(viewHolder: RecyclerView.ViewHolder, adapter: RoundHistoryListAdapter){
 
         //Create variable and store the view holder position of swiped item
         val position = viewHolder.adapterPosition
 
         //Create an player target variable and call the get player at position by using position as parameter
-        val currentTarget: Player = adapter.getPlayerAtPosition(position)
+        val currentTarget: Round = adapter.getRoundAtPosition(position)
 
         //Call function to delete the current target player item from database
-        mPlayerViewMode.deletePlayer(currentTarget)
+        roundViewModel.deleteRound(currentTarget)
 
         //Toast to let user know that item is being deleted
-        Toast.makeText(context, "Deleting:" + currentTarget.first_name, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Deleting:" + currentTarget.round_id, Toast.LENGTH_SHORT).show()
 
         //Let the adapter know that the income item at the swiped position got deleted
         adapter.notifyItemRemoved(position)
