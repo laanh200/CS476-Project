@@ -87,6 +87,7 @@ class NewRoundFragment : Fragment(), CoursePickerFragment.Callbacks, DatePickerF
     override fun onCoursePicked(courseId: Int, courseName: String) {
         this.courseId = courseId
         binding.newRoundCourse.setText(courseName)
+
     }
 
     // Receives the selected date from the DatePicker

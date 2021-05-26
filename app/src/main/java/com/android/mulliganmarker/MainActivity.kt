@@ -64,10 +64,14 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
             //Create a fragment of the home fragment
            val fragment = HomeFragment()
             //Add the newly created fragment to the fragment container
+            /*
             supportFragmentManager
                     .beginTransaction()
                     .add(R.id.fragment_container, fragment)
                     .commit()
+
+             */
+            replaceCurrentFragment(fragment)
         }
 
         navView = findViewById(R.id.nav_view)
@@ -108,6 +112,9 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
     private fun replaceCurrentFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
+                .setCustomAnimations(
+                    R.anim.slide_in, R.anim.fade_out, R.anim.fade_in,R.anim.slide_out
+                )
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
@@ -119,6 +126,9 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
 
         supportFragmentManager
             .beginTransaction()
+                .setCustomAnimations(
+                        R.anim.slide_in, R.anim.fade_out, R.anim.fade_in,R.anim.slide_out
+                )
             .remove(supportFragmentManager.findFragmentByTag("BottomSheetDialogMenu")!!)
             .replace(R.id.fragment_container, fragment)
             .commit()
@@ -134,6 +144,9 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
 
         supportFragmentManager
             .beginTransaction()
+                .setCustomAnimations(
+                        R.anim.slide_in, R.anim.fade_out, R.anim.fade_in,R.anim.slide_out
+                )
             .remove(supportFragmentManager.findFragmentByTag("BottomSheetDialogMenu")!!)
             .replace(R.id.fragment_container, fragment)
             .commit()
