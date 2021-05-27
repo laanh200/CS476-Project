@@ -24,6 +24,7 @@ class RoundHistoryListAdapter:RecyclerView.Adapter<RoundHistoryListAdapter.MyVie
             with(holder) {
                 binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(currentCourse.roundsList.date)
                 binding.courseItemName.text = currentCourse.course.name
+                binding.courseItemLocation.text = currentCourse.course.location
         }
     }
 
