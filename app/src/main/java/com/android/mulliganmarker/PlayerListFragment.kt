@@ -59,6 +59,9 @@ class PlayerListFragment : Fragment() {
         })
 
 
+
+
+
         /*Item touch helper to use as a delete item functionality
         Swipe left or right on the item will delete the item off the recycler
         delete from database
