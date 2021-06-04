@@ -12,16 +12,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.android.mulliganmarker.adapter.ScorecardListAdapter
 
 import com.android.mulliganmarker.databinding.FragmentScoreKeepingBinding
-import com.android.mulliganmarker.list.ScorecardListAdapter
+import com.android.mulliganmarker.model.Round
 import com.android.mulliganmarker.viewmodel.ScorecardViewModel
 
-class ScoreKeepingFragment : Fragment() {
+class ScoreKeepingFragment(round: Round?) : Fragment() {
 
     private val binding: FragmentScoreKeepingBinding by viewBinding()
 
     private lateinit var scorecardViewModel: ScorecardViewModel
+
+    private val currentRound = round
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

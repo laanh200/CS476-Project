@@ -12,6 +12,4 @@ interface CourseDAO {
     @Query("SELECT * FROM CourseTable ORDER BY name ASC")
     fun getAllCourses(): LiveData<List<Course>>
 
-    @Query("Select name From CourseTable where course_id = (:id)")
-   fun getName(id:Int): String
 }

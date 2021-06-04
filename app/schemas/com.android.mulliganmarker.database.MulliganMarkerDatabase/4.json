@@ -1,0 +1,533 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "692887a32ced050b87735911d39d6f17",
+    "entities": [
+      {
+        "tableName": "RoundTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`round_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `course_id` INTEGER NOT NULL, `date` INTEGER NOT NULL, `inProgress` INTEGER NOT NULL, FOREIGN KEY(`course_id`) REFERENCES `CourseTable`(`course_id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "round_id",
+            "columnName": "round_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "course_id",
+            "columnName": "course_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "inProgress",
+            "columnName": "inProgress",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "round_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_RoundTable_course_id",
+            "unique": false,
+            "columnNames": [
+              "course_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_RoundTable_course_id` ON `${TABLE_NAME}` (`course_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CourseTable",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "course_id"
+            ],
+            "referencedColumns": [
+              "course_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "PlayerTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`player_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `email` TEXT, `phone_number` TEXT, `handicap` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "player_id",
+            "columnName": "player_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "first_name",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "last_name",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone_number",
+            "columnName": "phone_number",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "handicap",
+            "columnName": "handicap",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "player_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ScorecardTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`score_card_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `round_id` INTEGER NOT NULL, `player_id` INTEGER NOT NULL, `tee_box_id` INTEGER NOT NULL, `hole1_score` INTEGER, `hole2_score` INTEGER, `hole3_score` INTEGER, `hole4_score` INTEGER, `hole5_score` INTEGER, `hole6_score` INTEGER, `hole7_score` INTEGER, `hole8_score` INTEGER, `hole9_score` INTEGER, `hole10_score` INTEGER, `hole11_score` INTEGER, `hole12_score` INTEGER, `hole13_score` INTEGER, `hole14_score` INTEGER, `hole15_score` INTEGER, `hole16_score` INTEGER, `hole17_score` INTEGER, `hole18_score` INTEGER, FOREIGN KEY(`round_id`) REFERENCES `RoundTable`(`round_id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`player_id`) REFERENCES `PlayerTable`(`player_id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`tee_box_id`) REFERENCES `TeeBoxTable`(`tee_box_id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "score_card_id",
+            "columnName": "score_card_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "round_id",
+            "columnName": "round_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "player_id",
+            "columnName": "player_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tee_box_id",
+            "columnName": "tee_box_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole1_score",
+            "columnName": "hole1_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole2_score",
+            "columnName": "hole2_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole3_score",
+            "columnName": "hole3_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole4_score",
+            "columnName": "hole4_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole5_score",
+            "columnName": "hole5_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole6_score",
+            "columnName": "hole6_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole7_score",
+            "columnName": "hole7_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole8_score",
+            "columnName": "hole8_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole9_score",
+            "columnName": "hole9_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole10_score",
+            "columnName": "hole10_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole11_score",
+            "columnName": "hole11_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole12_score",
+            "columnName": "hole12_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole13_score",
+            "columnName": "hole13_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole14_score",
+            "columnName": "hole14_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole15_score",
+            "columnName": "hole15_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole16_score",
+            "columnName": "hole16_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole17_score",
+            "columnName": "hole17_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole18_score",
+            "columnName": "hole18_score",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "score_card_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_ScorecardTable_round_id",
+            "unique": false,
+            "columnNames": [
+              "round_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ScorecardTable_round_id` ON `${TABLE_NAME}` (`round_id`)"
+          },
+          {
+            "name": "index_ScorecardTable_player_id",
+            "unique": false,
+            "columnNames": [
+              "player_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ScorecardTable_player_id` ON `${TABLE_NAME}` (`player_id`)"
+          },
+          {
+            "name": "index_ScorecardTable_tee_box_id",
+            "unique": false,
+            "columnNames": [
+              "tee_box_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_ScorecardTable_tee_box_id` ON `${TABLE_NAME}` (`tee_box_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "RoundTable",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "round_id"
+            ],
+            "referencedColumns": [
+              "round_id"
+            ]
+          },
+          {
+            "table": "PlayerTable",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "player_id"
+            ],
+            "referencedColumns": [
+              "player_id"
+            ]
+          },
+          {
+            "table": "TeeBoxTable",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "tee_box_id"
+            ],
+            "referencedColumns": [
+              "tee_box_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "CourseTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `location` TEXT NOT NULL, `phone_number` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "course_id",
+            "columnName": "course_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone_number",
+            "columnName": "phone_number",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "course_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "TeeBoxTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`tee_box_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `course_id` INTEGER NOT NULL, `name` TEXT NOT NULL, `color` TEXT NOT NULL, `hole1_yardage` INTEGER NOT NULL, `hole2_yardage` INTEGER NOT NULL, `hole3_yardage` INTEGER NOT NULL, `hole4_yardage` INTEGER NOT NULL, `hole5_yardage` INTEGER NOT NULL, `hole6_yardage` INTEGER NOT NULL, `hole7_yardage` INTEGER NOT NULL, `hole8_yardage` INTEGER NOT NULL, `hole9_yardage` INTEGER NOT NULL, `hole10_yardage` INTEGER, `hole11_yardage` INTEGER, `hole12_yardage` INTEGER, `hole13_yardage` INTEGER, `hole14_yardage` INTEGER, `hole15_yardage` INTEGER, `hole16_yardage` INTEGER, `hole17_yardage` INTEGER, `hole18_yardage` INTEGER, FOREIGN KEY(`course_id`) REFERENCES `CourseTable`(`course_id`) ON UPDATE CASCADE ON DELETE SET NULL )",
+        "fields": [
+          {
+            "fieldPath": "tee_box_id",
+            "columnName": "tee_box_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "course_id",
+            "columnName": "course_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole1_yardage",
+            "columnName": "hole1_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole2_yardage",
+            "columnName": "hole2_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole3_yardage",
+            "columnName": "hole3_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole4_yardage",
+            "columnName": "hole4_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole5_yardage",
+            "columnName": "hole5_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole6_yardage",
+            "columnName": "hole6_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole7_yardage",
+            "columnName": "hole7_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole8_yardage",
+            "columnName": "hole8_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole9_yardage",
+            "columnName": "hole9_yardage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hole10_yardage",
+            "columnName": "hole10_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole11_yardage",
+            "columnName": "hole11_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole12_yardage",
+            "columnName": "hole12_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole13_yardage",
+            "columnName": "hole13_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole14_yardage",
+            "columnName": "hole14_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole15_yardage",
+            "columnName": "hole15_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole16_yardage",
+            "columnName": "hole16_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole17_yardage",
+            "columnName": "hole17_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hole18_yardage",
+            "columnName": "hole18_yardage",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "tee_box_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_TeeBoxTable_course_id",
+            "unique": false,
+            "columnNames": [
+              "course_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_TeeBoxTable_course_id` ON `${TABLE_NAME}` (`course_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CourseTable",
+            "onDelete": "SET NULL",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "course_id"
+            ],
+            "referencedColumns": [
+              "course_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '692887a32ced050b87735911d39d6f17')"
+    ]
+  }
+}

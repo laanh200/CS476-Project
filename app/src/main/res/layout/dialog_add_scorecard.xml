@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/playerDropdown"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:padding="10dp"
+        android:background="@drawable/spinner_background"
+        android:foreground="?attr/selectableItemBackground"
+        android:hint="@string/player_dropdown_hint"
+        android:textColor="@color/light_green"
+        android:textColorHint="@color/light_green"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_tint="@color/light_green"
+        app:spinner_divider_color="@color/white"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_popup_animation="dropdown" />
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/teeBoxDropdown"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:padding="10dp"
+        android:background="@drawable/spinner_background"
+        android:foreground="?attr/selectableItemBackground"
+        android:hint="@string/tee_box_dropdown_hint"
+        android:textColor="@color/light_green"
+        android:textColorHint="@color/light_green"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerDropdown"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_tint="@color/light_green"
+        app:spinner_divider_color="@color/white"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_popup_animation="dropdown" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

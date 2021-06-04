@@ -9,7 +9,7 @@ import com.android.mulliganmarker.model.*
 
 private const val DATABASE_NAME = "mulligan-marker-database"
 
-@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 2, exportSchema = true)
+@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 4, exportSchema = true)
 @TypeConverters(RoundTypeConverters::class)
 abstract class MulliganMarkerDatabase : RoomDatabase() {
 
