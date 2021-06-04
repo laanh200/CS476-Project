@@ -26,6 +26,8 @@ class ScorecardListAdapter:RecyclerView.Adapter<ScorecardListAdapter.MyViewHolde
                 false
             )
         )
+
+
     }
 
     class MyViewHolder(val binding: ScorecardItemRowBinding):RecyclerView.ViewHolder(binding.root) {
