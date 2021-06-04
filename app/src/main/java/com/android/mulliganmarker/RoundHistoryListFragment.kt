@@ -15,9 +15,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.FragmentRoundHistoryListBinding
-import com.android.mulliganmarker.list.RoundHistoryListAdapter
+import com.android.mulliganmarker.adapter.RoundHistoryListAdapter
 import com.android.mulliganmarker.model.Round
-import com.android.mulliganmarker.model.RoundWithCourse
 import com.android.mulliganmarker.viewmodel.RoundViewModel
 
 
@@ -53,7 +52,7 @@ class RoundHistoryListFragment : Fragment() {
 
         roundViewModel = ViewModelProvider(this).get(RoundViewModel::class.java)
 
-        roundViewModel.roundhistoryList.observe(viewLifecycleOwner, Observer {
+        roundViewModel.roundHistoryList.observe(viewLifecycleOwner, Observer {
                 adapter.setData(it)
                 println("Number of item: " + adapter.itemCount)
             }

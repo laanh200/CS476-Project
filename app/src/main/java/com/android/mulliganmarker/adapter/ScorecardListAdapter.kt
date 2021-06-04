@@ -1,4 +1,4 @@
-package com.android.mulliganmarker.list
+package com.android.mulliganmarker.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

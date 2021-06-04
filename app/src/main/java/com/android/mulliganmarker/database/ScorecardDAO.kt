@@ -1,22 +1,23 @@
 package com.android.mulliganmarker.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Query
-import androidx.room.Update
-import com.android.mulliganmarker.model.Round
+import androidx.room.*
 import com.android.mulliganmarker.model.Scorecard
 import com.android.mulliganmarker.model.ScorecardWithData
 
 @Dao
 interface ScorecardDAO {
 
-    @Query("SELECT * FROM ScorecardTable WHERE round_id = :targetRoundID ORDER BY score_card_id DESC")
+    @Transaction
+    @Query("SELECT * FROM ScorecardTable WHERE round_id = (:targetRoundID) ORDER BY score_card_id DESC")
     fun getTargetScoreCards(targetRoundID: Int): LiveData<List<ScorecardWithData>>
 
-    @Update
+    /*@Update
     suspend fun saveScoreCards(scorecardsWithData: List<ScorecardWithData>)
 
     @Update
-    suspend fun finishRound(scorecard: ScorecardWithData)
+    suspend fun finishRound(scorecard: ScorecardWithData)*/
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addScorecard(scorecard: Scorecard)
 }

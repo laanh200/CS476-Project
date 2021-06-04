@@ -15,7 +15,9 @@ class RoundViewModel(application: Application): AndroidViewModel(application) {
         roundRepository.addRound(round)
     }
 
-    val roundhistoryList:LiveData<List<RoundWithCourse>> = roundRepository.getAllRound()
+    val latestRound: LiveData<Round?> = roundRepository.getLatestRound()
+
+    val roundHistoryList: LiveData<List<RoundWithCourse>> = roundRepository.getAllRound()
 
     fun deleteRound(round: Round){
         roundRepository.deleteRound(round)

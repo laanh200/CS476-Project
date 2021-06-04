@@ -14,9 +14,4 @@ class CourseViewModel(application: Application): AndroidViewModel(application) {
     private val courseRepository = CourseRepository(application)
 
     val coursesListLiveData = courseRepository.getAllCourses()
-
-
-    fun getCourseName(id:Int):String{
-        return courseRepository.getName(id)
-    }
 }

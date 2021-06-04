@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.FragmentPlayerListBinding
-import com.android.mulliganmarker.list.PlayerListAdapter
+import com.android.mulliganmarker.adapter.PlayerListAdapter
 import com.android.mulliganmarker.model.Player
 import com.android.mulliganmarker.viewmodel.PlayerViewModel
 
