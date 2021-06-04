@@ -6,16 +6,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.ScorecardItemRowBinding
 import com.android.mulliganmarker.model.ScorecardWithData
 
+
 class ScorecardListAdapter:RecyclerView.Adapter<ScorecardListAdapter.MyViewHolder>() {
 
     private var scoreCardsWithData = emptyList<ScorecardWithData>()
     private var totalPar:Int = 0
 
+    interface OnItemClickListener {
+        fun onItemClick(item: ScorecardWithData)
+    }
+    private val listener: OnItemClickListener? = null
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScorecardListAdapter.MyViewHolder {
-        return MyViewHolder(ScorecardItemRowBinding.inflate(LayoutInflater.from(parent.context), parent,false))
+        return MyViewHolder(
+            ScorecardItemRowBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
-    class MyViewHolder(val binding:ScorecardItemRowBinding):RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(val binding: ScorecardItemRowBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
 
@@ -42,6 +55,7 @@ class ScorecardListAdapter:RecyclerView.Adapter<ScorecardListAdapter.MyViewHolde
             binding.hole16Par.text = currentScoreCard.teeBox.hole16_yardage?.let { parConversion(it).toString() }
             binding.hole17Par.text = currentScoreCard.teeBox.hole17_yardage?.let { parConversion(it).toString() }
             binding.hole18Par.text = currentScoreCard.teeBox.hole18_yardage?.let { parConversion(it).toString() }
+
 
         }
     }

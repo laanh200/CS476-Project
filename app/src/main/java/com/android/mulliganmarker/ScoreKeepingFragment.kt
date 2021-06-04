@@ -16,12 +16,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.mulliganmarker.databinding.FragmentScoreKeepingBinding
 import com.android.mulliganmarker.list.ScorecardListAdapter
 import com.android.mulliganmarker.viewmodel.ScorecardViewModel
+import javax.security.auth.callback.Callback
+import kotlin.properties.Delegates
 
-class ScoreKeepingFragment : Fragment() {
+class ScoreKeepingFragment : Fragment(), ScorePickerFragment.CallBacks {
+
 
     private val binding: FragmentScoreKeepingBinding by viewBinding()
 
     private lateinit var scorecardViewModel: ScorecardViewModel
+
+    private var callback: Callback? = null
+
+    private var playerScore:Int ?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,13 +62,23 @@ class ScoreKeepingFragment : Fragment() {
         )
         */
         binding.saveScoreCardBTN.setOnClickListener {
-
+          //  scorecardViewModel.finishRound()
         }
+
+
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        callback = null
+    }
     override fun onStop() {
         super.onStop()
        // scorecardViewModel.saveScoreCards()
+    }
+    // Receives the course id and name from the CoursePicker
+    override fun onScorePicked(score: Int) {
+        playerScore = score
     }
 
 }
