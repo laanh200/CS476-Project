@@ -14,6 +14,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/round_course"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -44,9 +46,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/round_date"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newRoundCourseLayout"
@@ -60,7 +64,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/start_new_round_BTN"
+        android:id="@+id/startNewRoundBTN"
         android:layout_width="161dp"
         android:layout_height="42dp"
         android:layout_marginTop="24dp"

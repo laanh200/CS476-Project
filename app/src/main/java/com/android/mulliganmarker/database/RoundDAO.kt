@@ -11,10 +11,12 @@ interface RoundDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRound(round: Round)
 
+    @Query("SELECT * FROM RoundTable ORDER BY round_id DESC LIMIT 1")
+    fun getLatestRound():LiveData<Round?>
 
     @Transaction
-    @Query("Select * FROM RoundTable ORDER BY round_id DESC")
-    fun getCourseWithRound():LiveData<List<RoundWithCourse>>
+    @Query("SELECT * FROM RoundTable ORDER BY date DESC")
+    fun getRoundsWithCourse():LiveData<List<RoundWithCourse>>
 
     @Delete
     suspend fun deleteRound(round: Round)

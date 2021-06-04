@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.mulliganmarker.databinding.FragmentNewRoundBinding
 import com.android.mulliganmarker.model.Player
@@ -23,7 +24,7 @@ private const val REQUEST_DATE = 0
 class NewRoundFragment : Fragment(), CoursePickerFragment.Callbacks, DatePickerFragment.Callbacks {
 
     interface Callbacks {
-        fun onRoundStarted()
+        fun onRoundStarted(round: Round?)
     }
 
     private var callback: Callbacks? = null
@@ -34,6 +35,8 @@ class NewRoundFragment : Fragment(), CoursePickerFragment.Callbacks, DatePickerF
 
     private var courseId = 0
     private var displayDate = Date()
+
+    private var latestRound: Round? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -52,6 +55,15 @@ class NewRoundFragment : Fragment(), CoursePickerFragment.Callbacks, DatePickerF
         super.onViewCreated(view, savedInstanceState)
 
         roundViewModel = ViewModelProvider(this).get(RoundViewModel::class.java)
+
+        roundViewModel.latestRound.observe(
+                viewLifecycleOwner,
+                Observer { round ->
+                    round?.let {
+                        latestRound = round
+                    }
+                }
+        )
 
         binding.newRoundCourse.setOnFocusChangeListener { _, hasFocus ->
             if(hasFocus) {
@@ -97,22 +109,22 @@ class NewRoundFragment : Fragment(), CoursePickerFragment.Callbacks, DatePickerF
 
     private fun startNewRound() {
         //Create variables to store the data from the text views and convert to appropriate type
-        var courseNotSelected = (binding.newRoundCourse.text.toString()).isNullOrBlank()
-        var dateNotSelected = (binding.newRoundDate.text.toString()).isNullOrBlank()
-        var courseId = courseId
-        var date = displayDate
+        val courseNotSelected = (binding.newRoundCourse.text.toString()).isNullOrBlank()
+        val dateNotSelected = (binding.newRoundDate.text.toString()).isNullOrBlank()
+        val courseId = courseId
+        val date = displayDate
 
         //Check if the two important fields are blank
         if(!courseNotSelected && !dateNotSelected) {
-            val newRound = Round(0, courseId, date)
+            val newRound = Round(0, courseId, date, true)
             roundViewModel.insertRound(newRound)
 
             Toast.makeText(activity, "Successfully started round!", Toast.LENGTH_SHORT).show()
+
+            callback?.onRoundStarted(latestRound)
         }
         else {
             Toast.makeText(activity,"Failure in starting round. Course and date need to be selected.", Toast.LENGTH_SHORT).show()
         }
-
-        callback?.onRoundStarted()
     }
 }

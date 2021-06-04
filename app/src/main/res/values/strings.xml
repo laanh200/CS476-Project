@@ -5,6 +5,7 @@
 
     <string name="new_round">New Round</string>
     <string name="new_player">New Player</string>
+    <string name="new_scorecard_header">Select the players for the round</string>
     <string name="create_new_title">Create new</string>
 
     <string name="open">Open</string>
@@ -34,4 +35,11 @@
     <string name="course_picker_hint">Select the course</string>
 
     <string name="round_history_Title">Round history</string>
+
+    <string name="player">Player</string>
+    <string name="player_dropdown_hint">Select player: </string>
+
+    <string name="tee_box">Tee Box</string>
+    <string name="tee_box_dropdown_hint">Select tee box: </string>
+
 </resources>

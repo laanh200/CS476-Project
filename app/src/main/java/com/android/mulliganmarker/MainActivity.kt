@@ -14,13 +14,14 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.android.mulliganmarker.databinding.ActivityMainBinding
+import com.android.mulliganmarker.model.Round
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlayerFragment.CallBacks, NewRoundFragment.Callbacks {
+class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlayerFragment.CallBacks, NewRoundFragment.Callbacks, NewScorecardFragment.Callbacks {
 
     //Navigation view
     private lateinit var navView: NavigationView
@@ -139,7 +140,12 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
             .commit()
     }
 
-    override fun onRoundStarted() {
+    override fun onRoundStarted(round: Round?) {
+        val fragment = NewScorecardFragment(round)
+        replaceCurrentFragment(fragment)
+    }
+
+    override fun onScorecardsCreated() {
         val fragment = HomeFragment()
         replaceCurrentFragment(fragment)
     }

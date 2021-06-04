@@ -14,21 +14,25 @@ class RoundRepository(application: Application) {
 
     private var roundDao: RoundDAO = MulliganMarkerDatabase.getDatabase(application).roundDao()
 
-    var allRounds:LiveData<List<RoundWithCourse>>
+    var allRounds: LiveData<List<RoundWithCourse>>
 
-    init{
-        allRounds = roundDao.getCourseWithRound()
+    init {
+        allRounds = roundDao.getRoundsWithCourse()
     }
+
     fun addRound(round: Round) {
         CoroutineScope(Dispatchers.IO).launch {
             roundDao.addRound(round)
         }
     }
-    fun getAllRound():LiveData<List<RoundWithCourse>>{
+
+    fun getLatestRound(): LiveData<Round?> = roundDao.getLatestRound()
+
+    fun getAllRound(): LiveData<List<RoundWithCourse>> {
         return allRounds
     }
 
-    fun deleteRound(round: Round){
+    fun deleteRound(round: Round) {
         CoroutineScope(Dispatchers.IO).launch {
             roundDao.deleteRound(round)
         }
