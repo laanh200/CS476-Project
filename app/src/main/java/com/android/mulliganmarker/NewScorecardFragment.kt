@@ -66,7 +66,7 @@ class NewScorecardFragment(round: Round?):  Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        teeBoxViewModel.loadTeeBoxes(newRound!!.course_id)
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -75,6 +75,12 @@ class NewScorecardFragment(round: Round?):  Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+     //   print("This is the course ID" + newRound!!.course_id)
+        Log.i(TAG, "Course ID: ${newRound!!.course_id}")
+
+        teeBoxViewModel.loadTeeBoxes(newRound!!.course_id)
 
         binding.scorecardRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.scorecardRecyclerView.adapter = adapter

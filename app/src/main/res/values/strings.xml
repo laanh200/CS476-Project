@@ -36,10 +36,16 @@
 
     <string name="round_history_Title">Round history</string>
 
+    <string name="score_picker_title">Score For Current Hole:</string>
+
+    <string name="player_Initial">Player Name</string>
+    <string name="hole_title">Hole</string>
+    <string name="par_title">Par</string>
+    <string name="score_title">Score</string>
+
     <string name="player">Player</string>
     <string name="player_dropdown_hint">Select player: </string>
 
     <string name="tee_box">Tee Box</string>
     <string name="tee_box_dropdown_hint">Select tee box: </string>
-
 </resources>

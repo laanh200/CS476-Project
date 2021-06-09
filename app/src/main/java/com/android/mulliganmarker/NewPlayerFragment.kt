@@ -90,7 +90,7 @@ class NewPlayerFragment : Fragment() {
         return handicap
     }
     private fun isEmailValid(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
     private fun isValidPhoneNumber(phone: String): Boolean {
         return Patterns.PHONE.matcher(phone).matches()

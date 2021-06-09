@@ -40,6 +40,7 @@ abstract class MulliganMarkerDatabase : RoomDatabase() {
                                 MulliganMarkerDatabase::class.java,
                             DATABASE_NAME)
                         .createFromAsset("database/GolfCourses.db")
+                       // .fallbackToDestructiveMigration()
                         .build()
                 //Set the instance equal to the brand new created instance
                 INSTANCE = instance
