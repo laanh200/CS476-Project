@@ -1,11 +1,7 @@
 package com.android.mulliganmarker
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.Gravity
 import android.view.MenuItem
-import android.view.View
 import android.viewbinding.library.activity.viewBinding
 import androidx.appcompat.app.ActionBarDrawerToggle
 
@@ -162,6 +158,8 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
         val fragment = ScoreKeepingFragment(round)
         replaceCurrentFragment(fragment)
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //Return true if the menu item is being selected

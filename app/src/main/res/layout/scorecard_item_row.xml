@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -70,13 +72,15 @@
                 android:id="@+id/hole1Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 1"
+                android:gravity="center_horizontal"
+                android:text="1"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole1Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 1"
                 android:textColor="@color/dark_green" />
@@ -85,6 +89,7 @@
                 android:id="@+id/hole1Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 1 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -96,13 +101,15 @@
                 android:id="@+id/hole2Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 2"
+                android:gravity="center_horizontal"
+                android:text="2"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole2Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 2"
                 android:textColor="@color/dark_green" />
@@ -111,6 +118,7 @@
                 android:id="@+id/hole2Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 2 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -122,13 +130,15 @@
                 android:id="@+id/hole3Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 3"
+                android:gravity="center_horizontal"
+                android:text="3"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole3Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 3"
                 android:textColor="@color/dark_green" />
@@ -138,6 +148,7 @@
                 android:layout_column="2"
                 android:clickable="true"
                 android:hint="Hole 3 Score"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
         </TableRow>
@@ -148,7 +159,8 @@
                 android:id="@+id/hole4Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 4"
+                android:gravity="center_horizontal"
+                android:text="4"
                 android:textColor="@color/dark_green" />
 
             <TextView
@@ -156,6 +168,7 @@
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:gravity="center_horizontal"
                 android:text="Par 4"
                 android:textColor="@color/dark_green" />
 
@@ -164,6 +177,7 @@
                 android:layout_column="2"
                 android:clickable="true"
                 android:hint="Hole 4 Score"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
         </TableRow>
@@ -174,13 +188,15 @@
                 android:id="@+id/hole5Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 5"
+                android:gravity="center_horizontal"
+                android:text="5"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole5Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 5"
                 android:textColor="@color/dark_green" />
@@ -189,6 +205,7 @@
                 android:id="@+id/hole5Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 5 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -200,13 +217,15 @@
                 android:id="@+id/hole6Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 6"
+                android:gravity="center_horizontal"
+                android:text="6"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole6Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 6"
                 android:textColor="@color/dark_green" />
@@ -215,6 +234,7 @@
                 android:id="@+id/hole6Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 6 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -226,13 +246,15 @@
                 android:id="@+id/hole7Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 7"
+                android:gravity="center_horizontal"
+                android:text="7"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole7Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 7"
                 android:textColor="@color/dark_green" />
@@ -241,6 +263,7 @@
                 android:id="@+id/hole7Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 7 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -252,13 +275,15 @@
                 android:id="@+id/hole8Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 8"
+                android:gravity="center_horizontal"
+                android:text="8"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole8Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 8"
                 android:textColor="@color/dark_green" />
@@ -267,6 +292,7 @@
                 android:id="@+id/hole8Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 8 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -278,21 +304,24 @@
                 android:id="@+id/hole9Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 9"
+                android:gravity="center_horizontal"
+                android:text="9"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole9Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 9"
                 android:textColor="@color/dark_green" />
 
             <TextView
-                android:id="@+id/hole91Score"
+                android:id="@+id/hole9Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 9 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -304,13 +333,15 @@
                 android:id="@+id/hole10Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 10"
+                android:gravity="center_horizontal"
+                android:text="10"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole10Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 10"
                 android:textColor="@color/dark_green" />
@@ -319,6 +350,7 @@
                 android:id="@+id/hole10Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 10 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -330,13 +362,15 @@
                 android:id="@+id/hole11Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 11"
+                android:gravity="center_horizontal"
+                android:text="11"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole11Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 11"
                 android:textColor="@color/dark_green" />
@@ -345,6 +379,7 @@
                 android:id="@+id/hole11Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 11 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -356,13 +391,15 @@
                 android:id="@+id/hole12Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 12"
+                android:gravity="center_horizontal"
+                android:text="12"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole12Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 12"
                 android:textColor="@color/dark_green" />
@@ -371,6 +408,7 @@
                 android:id="@+id/hole12Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 12 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -382,13 +420,15 @@
                 android:id="@+id/hole13Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 13"
+                android:gravity="center_horizontal"
+                android:text="13"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole13Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 13"
                 android:textColor="@color/dark_green" />
@@ -397,6 +437,7 @@
                 android:id="@+id/hole13Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 13 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -408,13 +449,15 @@
                 android:id="@+id/hole14Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 14"
+                android:gravity="center_horizontal"
+                android:text="14"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole14Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 14"
                 android:textColor="@color/dark_green" />
@@ -423,6 +466,7 @@
                 android:id="@+id/hole14Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 14 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -434,13 +478,15 @@
                 android:id="@+id/hole15Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 15"
+                android:gravity="center_horizontal"
+                android:text="15"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole15Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 15"
                 android:textColor="@color/dark_green" />
@@ -450,6 +496,7 @@
                 android:layout_column="2"
                 android:clickable="true"
                 android:hint="Hole 15 Score"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
         </TableRow>
@@ -460,13 +507,15 @@
                 android:id="@+id/hole16Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 16"
+                android:gravity="center_horizontal"
+                android:text="16"
                 android:textColor="@color/dark_green" />
 
             <TextView
                 android:id="@+id/hole16Par"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Par 16"
                 android:textColor="@color/dark_green" />
@@ -475,6 +524,7 @@
                 android:id="@+id/hole16Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 16 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -487,7 +537,8 @@
                 android:id="@+id/hole17Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 17"
+                android:gravity="center_horizontal"
+                android:text="17"
                 android:textColor="@color/dark_green" />
 
             <TextView
@@ -495,6 +546,7 @@
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:gravity="center_horizontal"
                 android:text="Par 17"
                 android:textColor="@color/dark_green" />
 
@@ -502,6 +554,7 @@
                 android:id="@+id/hole17Score"
                 android:layout_column="2"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:hint="Hole 17 Score"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
@@ -513,7 +566,8 @@
                 android:id="@+id/hole18Label"
                 android:layout_column="0"
                 android:padding="5dp"
-                android:text="Hole 18"
+                android:gravity="center_horizontal"
+                android:text="18"
                 android:textColor="@color/dark_green" />
 
             <TextView
@@ -521,6 +575,7 @@
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:gravity="center_horizontal"
                 android:text="Par 18"
                 android:textColor="@color/dark_green" />
 
@@ -529,6 +584,32 @@
                 android:layout_column="2"
                 android:clickable="true"
                 android:hint="Hole 18 Score"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:textColor="@color/dark_green" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/bottom_total_heading"
+                android:layout_column="0"
+                android:padding="5dp"
+                android:text="Total"
+                android:gravity="center_horizontal"
+                android:textColor="@color/dark_green" />
+
+            <TextView
+                android:id="@+id/parTotal"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:textColor="@color/dark_green" />
+
+            <TextView
+                android:id="@+id/playerTotal"
+                android:layout_column="2"
+                android:clickable="true"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:textColor="@color/dark_green" />
         </TableRow>
