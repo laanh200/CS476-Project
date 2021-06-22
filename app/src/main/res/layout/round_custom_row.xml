@@ -22,10 +22,9 @@
             android:id="@+id/course_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="@string/course_name"
             android:textColor="@color/light_green"
-            app:layout_constraintBottom_toBottomOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,11 +32,19 @@
             android:id="@+id/course_item_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="@string/course_location"
             android:textColor="@color/light_green"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/course_item_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/course_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/round_date"
+            android:textColor="@color/light_green"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/course_item_name"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -53,10 +60,10 @@
         app:layout_constraintTop_toBottomOf="@+id/row_nameLayout">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/course_item_date"
+            android:id="@+id/course_item_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/round_date"
+            android:text="@string/round_status"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/row_dateLayout"
             app:layout_constraintEnd_toEndOf="parent"

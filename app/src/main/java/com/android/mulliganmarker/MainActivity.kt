@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlayerFragment.CallBacks, NewRoundFragment.Callbacks, NewScorecardFragment.Callbacks {
+class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlayerFragment.CallBacks, NewRoundFragment.Callbacks, NewScorecardFragment.Callbacks, RoundHistoryListFragment.Callbacks, ScoreKeepingFragment.Callbacks {
 
     //Navigation view
     private lateinit var navView: NavigationView
@@ -159,7 +159,15 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
         replaceCurrentFragment(fragment)
     }
 
+    override fun onRoundSelected(round: Round?) {
+        val fragment = ScoreKeepingFragment(round)
+        replaceCurrentFragment(fragment)
+    }
 
+    override fun onRoundCompleted() {
+        val fragment = HomeFragment()
+        replaceCurrentFragment(fragment)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //Return true if the menu item is being selected

@@ -12,11 +12,8 @@ interface ScorecardDAO {
     @Query("SELECT * FROM ScorecardTable WHERE round_id = (:targetRoundID) ORDER BY score_card_id DESC")
     fun getTargetScoreCards(targetRoundID: Int): LiveData<List<ScorecardWithData>>
 
-    /*@Update
-    suspend fun saveScoreCards(scorecardsWithData: List<ScorecardWithData>)
-
     @Update
-    suspend fun finishRound(scorecard: ScorecardWithData)*/
+    fun updateScorecard(scorecard: Scorecard)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addScorecard(scorecard: Scorecard)

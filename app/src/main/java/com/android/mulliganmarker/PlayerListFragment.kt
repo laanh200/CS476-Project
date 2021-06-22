@@ -129,7 +129,7 @@ class PlayerListFragment : Fragment() {
         mPlayerViewMode.deletePlayer(currentTarget)
 
         //Toast to let user know that item is being deleted
-        Toast.makeText(context, "Deleting:" + currentTarget.first_name, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Deleting: " + currentTarget.first_name, Toast.LENGTH_SHORT).show()
 
         //Let the adapter know that the income item at the swiped position got deleted
         adapter.notifyItemRemoved(position)

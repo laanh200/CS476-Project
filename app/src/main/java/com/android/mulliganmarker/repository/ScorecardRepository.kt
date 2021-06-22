@@ -16,16 +16,11 @@ class ScorecardRepository(application: Application) {
 
     fun getTargetScoreCards(targetRoundId: Int): LiveData<List<ScorecardWithData>> = scorecardDAO.getTargetScoreCards(targetRoundId)
 
-     /*fun saveScoreCards(scorecards: List<ScorecardWithData>){
+    fun updateScorecard(scorecard: Scorecard) {
         CoroutineScope(Dispatchers.IO).launch {
-            scorecardDAO.saveScoreCards(scorecards)
+            scorecardDAO.updateScorecard(scorecard)
         }
     }
-    fun finishRound(scorecard: ScorecardWithData){
-        CoroutineScope(Dispatchers.IO).launch {
-            scorecardDAO.finishRound(scorecard)
-        }
-    }*/
 
     fun addScorecard(scorecard: Scorecard) {
         CoroutineScope(Dispatchers.IO).launch {

@@ -8,27 +8,65 @@
    >
 
 
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save_ScoreCard_BTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:tint="@color/white"
+        android:tintMode="add"
         android:clickable="true"
         android:focusable="true"
-        android:layout_margin="5dp"
+        app:backgroundTint="@color/light_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="38dp"
         app:srcCompat="@drawable/ic_baseline_done_all_24" />
 
+    <TextView
+        android:id="@+id/scorecard_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/course_name"
+        android:textAlignment="viewStart"
+        android:textColor="@color/light_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scorecard_course_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/course_location"
+        android:textColor="@color/light_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scorecard_course_name" />
+
+    <TextView
+        android:id="@+id/scorecard_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/round_date"
+        android:textColor="@color/light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/save_ScoreCard_BTN"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/scorecard_course_location">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,8 +76,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/scorecard_RecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>

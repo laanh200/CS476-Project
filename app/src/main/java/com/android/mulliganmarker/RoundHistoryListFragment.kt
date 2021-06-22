@@ -1,5 +1,6 @@
 package com.android.mulliganmarker
 
+import android.content.Context
 import android.graphics.Canvas
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,14 +19,25 @@ import com.android.mulliganmarker.databinding.FragmentRoundHistoryListBinding
 import com.android.mulliganmarker.adapter.RoundHistoryListAdapter
 import com.android.mulliganmarker.model.Round
 import com.android.mulliganmarker.viewmodel.RoundViewModel
-
+import javax.security.auth.callback.Callback
 
 
 class RoundHistoryListFragment : Fragment() {
 
+    interface Callbacks {
+        fun onRoundSelected(round: Round?)
+    }
+
     private val binding: FragmentRoundHistoryListBinding by viewBinding()
 
+    private var callback: Callbacks? = null
+
     private lateinit var roundViewModel: RoundViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callback = context as Callbacks
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -36,9 +48,9 @@ class RoundHistoryListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.roundHistoryListRecyclerView
-
-        val adapter = RoundHistoryListAdapter()
+        val adapter = RoundHistoryListAdapter() {
+            callback?.onRoundSelected(it.roundsList)
+        }
 
         binding.roundHistoryListRecyclerView.adapter = adapter
 
@@ -104,6 +116,12 @@ class RoundHistoryListFragment : Fragment() {
             }
             //Attach the item touch helper to the recycler view
         }).attachToRecyclerView(binding.roundHistoryListRecyclerView)
+    }
+
+    override fun onDetach() {
+
+        super.onDetach()
+        callback = null
     }
 
     //This function is used to call to delete the expense item in the expenseList database

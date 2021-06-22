@@ -8,33 +8,43 @@ import com.android.mulliganmarker.model.Round
 import com.android.mulliganmarker.model.RoundWithCourse
 import java.text.DateFormat
 
-class RoundHistoryListAdapter:RecyclerView.Adapter<RoundHistoryListAdapter.MyViewHolder>() {
+class RoundHistoryListAdapter(private val onItemClicked: (RoundWithCourse) -> Unit): RecyclerView.Adapter<RoundHistoryListAdapter.RoundViewHolder>() {
     private var roundHistoryList = emptyList<RoundWithCourse>()
 
-    class MyViewHolder(val binding: RoundCustomRowBinding):RecyclerView.ViewHolder(binding.root) {
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(RoundCustomRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var currentCourse = roundHistoryList[position]
-
-            with(holder) {
-                binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(currentCourse.roundsList.date)
-                binding.courseItemName.text = currentCourse.course.name
-                binding.courseItemLocation.text = currentCourse.course.location
+    class RoundViewHolder(val binding: RoundCustomRowBinding):RecyclerView.ViewHolder(binding.root) {
+        fun bind(round: RoundWithCourse) {
+            binding.courseItemDate.text = DateFormat.getDateInstance(DateFormat.MEDIUM).format(round.roundsList.date)
+            binding.courseItemName.text = round.course.name
+            binding.courseItemLocation.text = round.course.location
+            if(round.roundsList.inProgress) {
+                binding.courseItemStatus.text = "In Progress"
+            }
+            else {
+                binding.courseItemStatus.text = "Finished"
+            }
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoundViewHolder {
+        return RoundViewHolder(RoundCustomRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    }
+
+    override fun onBindViewHolder(holder: RoundViewHolder, position: Int) {
+        val currentRound = roundHistoryList[position]
+
+        holder.bind(currentRound)
+        holder.itemView.setOnClickListener { onItemClicked(currentRound) }
     }
 
     override fun getItemCount(): Int {
         return roundHistoryList.size
     }
-    fun setData(newRoundWithCourseList: List<RoundWithCourse>){
+
+    fun setData(newRoundWithCourseList: List<RoundWithCourse>) {
         this.roundHistoryList = newRoundWithCourseList
         notifyDataSetChanged()
     }
+
     fun getRoundAtPosition(position: Int): Round {
         return roundHistoryList[position].roundsList
     }
