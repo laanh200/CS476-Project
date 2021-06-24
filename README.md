@@ -97,6 +97,8 @@ This application was created from the following packages:
 -	[Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
 -	[Reference Room Database video](https://www.youtube.com/watch?v=lwAvI3WDXBY)
 -	[Reference Navigation Drawer video](https://www.youtube.com/watch?v=do4vb0MdLFY)
+-	[View Binding Property Delegate](https://github.com/kirich1409/ViewBindingPropertyDelegate)
+-	[PowerSpinner](https://github.com/skydoves/PowerSpinner)
 
 ## Contact Info
 >GitHub [@laanh200]( https://github.com/laanh200)
