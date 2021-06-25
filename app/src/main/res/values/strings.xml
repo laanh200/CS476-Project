@@ -28,6 +28,7 @@
 
     <string name="round_course">Course</string>
     <string name="round_date">Date</string>
+    <string name="round_status">Status</string>
 
     <string name="course_name">Name</string>
     <string name="course_location">Location</string>

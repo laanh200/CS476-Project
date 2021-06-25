@@ -26,10 +26,18 @@ class RoundRepository(application: Application) {
         }
     }
 
+    fun getRound(roundId: Int): LiveData<RoundWithCourse> = roundDao.getRound(roundId)
+
     fun getLatestRound(): LiveData<Round?> = roundDao.getLatestRound()
 
     fun getAllRound(): LiveData<List<RoundWithCourse>> {
         return allRounds
+    }
+
+    fun updateRound(round: Round) {
+        CoroutineScope(Dispatchers.IO).launch {
+            roundDao.updateRound(round)
+        }
     }
 
     fun deleteRound(round: Round) {

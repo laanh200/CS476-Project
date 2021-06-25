@@ -17,8 +17,8 @@ class CourseListAdapter ( var courses: List<Course>, private val onItemClicked: 
 
         fun bind(course: Course) {
             this.course = course
-            itemView.findViewById<TextView>(R.id.course_name).text = "Name: " + course.name
-            itemView.findViewById<TextView>(R.id.course_location).text = "Location: " + course.location
+            itemView.findViewById<TextView>(R.id.course_name).text = course.name
+            itemView.findViewById<TextView>(R.id.course_location).text = course.location
         }
     }
 

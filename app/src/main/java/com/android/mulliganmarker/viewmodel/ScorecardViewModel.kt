@@ -13,13 +13,9 @@ class ScorecardViewModel(application: Application): AndroidViewModel(application
 
     fun getTargetScoreCards (roundID: Int): LiveData<List<ScorecardWithData>> = scorecardRepository.getTargetScoreCards(roundID)
 
-   /*fun saveScoreCards(scoreCards: List<ScorecardWithData>){
-        scorecardRepository.saveScoreCards(scoreCards)
+    fun saveScorecard(scorecard: Scorecard) {
+        scorecardRepository.updateScorecard(scorecard)
     }
-
-    fun finishRound(scorecard: ScorecardWithData){
-        scorecardRepository.finishRound(scorecard)
-    }*/
 
     fun insertScorecard(scorecard: Scorecard) {
         scorecardRepository.addScorecard(scorecard)
