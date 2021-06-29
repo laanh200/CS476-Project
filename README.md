@@ -59,6 +59,8 @@ To add new round.
 To add player and their teebox into the round.
 
 ![select player](https://user-images.githubusercontent.com/79466152/123834013-3176f000-d8c4-11eb-9cb1-804c2bc652d1.PNG)
+![pick player](https://user-images.githubusercontent.com/79466152/123835392-b31b4d80-d8c5-11eb-9ec4-e5fd2aea5a15.PNG)
+![new scorecard confirm](https://user-images.githubusercontent.com/79466152/123835424-bdd5e280-d8c5-11eb-8cd6-29db93029edc.PNG)
 
 
 To access the current list of players or rounds.
@@ -67,6 +69,23 @@ To access the current list of players or rounds.
 
 ![home screen - swipe](https://user-images.githubusercontent.com/79466152/123834338-8f0b3c80-d8c4-11eb-94bf-5c583d1e6d08.png)
 ![navigation drawer](https://user-images.githubusercontent.com/79466152/123834345-929ec380-d8c4-11eb-9e5d-03564efcef19.PNG)
+
+
+To delele player.
+
+![player list - swipe to delete](https://user-images.githubusercontent.com/79466152/123837795-80bf1f80-d8c8-11eb-9a7e-b468385b53d6.PNG)
+![player list - delete player](https://user-images.githubusercontent.com/79466152/123837807-83ba1000-d8c8-11eb-9bb6-5af0a8ca7584.PNG)
+
+To delete round.
+
+![round list swipe](https://user-images.githubusercontent.com/79466152/123838069-caa80580-d8c8-11eb-9e97-af80e9661549.PNG)
+![round list delete round](https://user-images.githubusercontent.com/79466152/123837869-92a0c280-d8c8-11eb-9433-1a2df5931d19.PNG)
+
+To access the round.
+
+- Touch the target round.
+
+![select the round](https://user-images.githubusercontent.com/79466152/123838152-e6131080-d8c8-11eb-96e2-481466b648f5.PNG)
 
 
 To track golf score.
