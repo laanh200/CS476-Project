@@ -19,15 +19,17 @@
 
 Add new player.
 
-![new player interface](https://user-images.githubusercontent.com/79466152/123298117-6b678100-d4d5-11eb-8de9-a486448dd083.PNG)
+![new player interface](https://user-images.githubusercontent.com/79466152/123832602-beb94500-d8c2-11eb-9468-fac0092fa897.PNG)
+
 
 Create new round.
 
-![new round](https://user-images.githubusercontent.com/79466152/123298131-6efb0800-d4d5-11eb-9626-b3f0544d1965.PNG)
+![new round](https://user-images.githubusercontent.com/79466152/123832672-d395d880-d8c2-11eb-81be-7346c1980232.PNG)
+
 
 Track golf score.
 
-![score keeping](https://user-images.githubusercontent.com/79466152/123298203-7fab7e00-d4d5-11eb-9aa2-1af8ab4c2d25.PNG)
+![score keeping](https://user-images.githubusercontent.com/79466152/123833459-9716ac80-d8c3-11eb-9901-920fbac47361.PNG)
 
 
 ## Installation
@@ -39,37 +41,40 @@ You can install Mulligan Marker by downloading the [APK] from GitHub and install
 ## User manual
 To add a new player.
 
-![new option](https://user-images.githubusercontent.com/79466152/123291006-f4c78500-d4ce-11eb-9f84-8cfa026ddfb0.png)
-![new menu - new player](https://user-images.githubusercontent.com/79466152/123290951-e9745980-d4ce-11eb-9ddf-e02f839d60d5.png)
-![new player - save](https://user-images.githubusercontent.com/79466152/123291263-2e988b80-d4cf-11eb-806d-f0828eae06e4.PNG)
+![new option](https://user-images.githubusercontent.com/79466152/123833755-e957cd80-d8c3-11eb-94fe-81cc6c143b40.png)
+![new menu - new player](https://user-images.githubusercontent.com/79466152/123833766-ed83eb00-d8c3-11eb-959c-89b7f3a30f20.png)
+![new player - save](https://user-images.githubusercontent.com/79466152/123833770-ef4dae80-d8c3-11eb-9dee-a167e0931f17.PNG)
+
 
 To add new round.
 
-![new menu - new round](https://user-images.githubusercontent.com/79466152/123291462-5d166680-d4cf-11eb-9df8-e18f14c1ddd3.png)
-![new round - course](https://user-images.githubusercontent.com/79466152/123291525-6b648280-d4cf-11eb-9dc1-37b2f1e49707.png)
-![course list](https://user-images.githubusercontent.com/79466152/123291535-6c95af80-d4cf-11eb-870b-8a041141007c.PNG)
-![new round - date](https://user-images.githubusercontent.com/79466152/123291542-6ef80980-d4cf-11eb-847f-aa6bc05605f3.png)
-![date](https://user-images.githubusercontent.com/79466152/123291547-70c1cd00-d4cf-11eb-98ed-ca3edde720ee.PNG)
-![new round - save](https://user-images.githubusercontent.com/79466152/123291558-728b9080-d4cf-11eb-9486-08c53f467290.png)
+![new menu - new round](https://user-images.githubusercontent.com/79466152/123833831-012f5180-d8c4-11eb-8b84-055ffcc106f3.png)
+![new round - course](https://user-images.githubusercontent.com/79466152/123833853-08eef600-d8c4-11eb-8630-a42c6a5ce679.png)
+![course list](https://user-images.githubusercontent.com/79466152/123833861-0ab8b980-d8c4-11eb-9fc3-50be9abb6ffa.PNG)
+![new round - date](https://user-images.githubusercontent.com/79466152/123833880-0db3aa00-d8c4-11eb-88fb-dc5088c9d4a8.png)
+![date](https://user-images.githubusercontent.com/79466152/123833884-0ee4d700-d8c4-11eb-9b68-e31253ae6139.PNG)
+![new round - save](https://user-images.githubusercontent.com/79466152/123833899-11473100-d8c4-11eb-9947-0983714a8b1f.png)
+
 
 To add player and their teebox into the round.
 
-![select player](https://user-images.githubusercontent.com/79466152/123291815-b2eb0e80-d4cf-11eb-9d43-e5003eca82fe.PNG)
+![select player](https://user-images.githubusercontent.com/79466152/123834013-3176f000-d8c4-11eb-9cb1-804c2bc652d1.PNG)
 
 
 To access the current list of players or rounds.
 
 *Swipe from left to right.
 
-![home screen - swipe](https://user-images.githubusercontent.com/79466152/123293387-2ccfc780-d4d1-11eb-9606-1715b7cb5561.png)
-![navigation drawer](https://user-images.githubusercontent.com/79466152/123297004-635b1180-d4d4-11eb-8d6c-0115c823bdce.PNG)
+![home screen - swipe](https://user-images.githubusercontent.com/79466152/123834338-8f0b3c80-d8c4-11eb-94bf-5c583d1e6d08.png)
+![navigation drawer](https://user-images.githubusercontent.com/79466152/123834345-929ec380-d8c4-11eb-9e5d-03564efcef19.PNG)
+
 
 To track golf score.
 
-![score keeping - finished](https://user-images.githubusercontent.com/79466152/123298297-96ea6b80-d4d5-11eb-8052-233d41f9f391.PNG)
-![score keeping - select hole score](https://user-images.githubusercontent.com/79466152/123298307-98b42f00-d4d5-11eb-9545-f57defb73eec.PNG)
-![score picker](https://user-images.githubusercontent.com/79466152/123298316-9a7df280-d4d5-11eb-9d65-85ef34f101ff.PNG)
-![show score on scorecard](https://user-images.githubusercontent.com/79466152/123298397-b1244980-d4d5-11eb-85ce-2f8e91dd707d.PNG)
+![score keeping - select hole score](https://user-images.githubusercontent.com/79466152/123834416-a34f3980-d8c4-11eb-8ef8-9be651e5c5fe.PNG)
+![score picker](https://user-images.githubusercontent.com/79466152/123834428-a6e2c080-d8c4-11eb-9932-4edcf51a4fd7.PNG)
+![show score on scorecard](https://user-images.githubusercontent.com/79466152/123834470-af3afb80-d8c4-11eb-97b2-85ba7f8f0d39.PNG)
+![score keeping - finished](https://user-images.githubusercontent.com/79466152/123834572-cb3e9d00-d8c4-11eb-9acb-8eb675283741.PNG)
 
 
 ## Troubleshooting tips
