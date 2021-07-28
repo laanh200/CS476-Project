@@ -34,7 +34,7 @@ Track golf score.
 
 ## Installation
 
-You can install Mulligan Marker by downloading the [APK] from GitHub and install it.
+You can install Mulligan Marker by downloading the [APK](https://github.com/laanh200/CS476-Project/releases/tag/1.0.1) from GitHub and install it.
 
 *This will require Android Studio already installed on your machine.
 
