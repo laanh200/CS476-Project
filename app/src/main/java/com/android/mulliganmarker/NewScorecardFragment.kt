@@ -23,6 +23,7 @@ import com.android.mulliganmarker.model.Round
 import com.android.mulliganmarker.model.Scorecard
 import com.android.mulliganmarker.model.TeeBox
 import com.android.mulliganmarker.viewmodel.PlayerViewModel
+import com.android.mulliganmarker.viewmodel.RoundViewModel
 import com.android.mulliganmarker.viewmodel.ScorecardViewModel
 import com.android.mulliganmarker.viewmodel.TeeBoxViewModel
 import com.skydoves.powerspinner.PowerSpinnerView
@@ -38,6 +39,10 @@ class NewScorecardFragment(round: Round?):  Fragment() {
     private var callback: Callbacks? = null
 
     private val binding: FragmentNewScorecardBinding by viewBinding()
+
+    private val roundViewModel: RoundViewModel by lazy {
+        ViewModelProvider(this).get(RoundViewModel::class.java)
+    }
 
     private val playerViewModel: PlayerViewModel by lazy {
         ViewModelProvider(this).get(PlayerViewModel::class.java)
@@ -80,7 +85,7 @@ class NewScorecardFragment(round: Round?):  Fragment() {
      //   print("This is the course ID" + newRound!!.course_id)
         Log.i(TAG, "Course ID: ${newRound!!.course_id}")
 
-        teeBoxViewModel.loadTeeBoxes(newRound!!.course_id)
+        teeBoxViewModel.loadTeeBoxes(newRound.course_id)
 
         binding.scorecardRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.scorecardRecyclerView.adapter = adapter
@@ -150,7 +155,7 @@ class NewScorecardFragment(round: Round?):  Fragment() {
             builder.setPositiveButton("Ok") { _, _ ->
                 // If player and tee box have been selected
                 if(playerId != -1 && teeBoxId != -1) {
-                    val newScorecard = Scorecard(0, newRound!!.round_id, playerId, teeBoxId,
+                    val newScorecard = Scorecard(0, newRound.round_id, playerId, teeBoxId,
                             null, null, null, null, null, null, null, null, null,
                             null, null, null, null, null, null, null, null, null)
                     scorecardList.add(newScorecard)
@@ -178,13 +183,21 @@ class NewScorecardFragment(round: Round?):  Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setMessage("Would you like to add these players to the scorecard?")
             builder.setPositiveButton("Yes") { _, _ ->
-                for (scorecard in scorecardList) {
-                    scorecardViewModel.insertScorecard(scorecard)
+                if(scorecardList.isEmpty()) {
+                    Toast.makeText(activity, "Failure adding players. There are no players selected.", Toast.LENGTH_SHORT).show()
                 }
+                else {
+                    for (scorecard in scorecardList) {
+                        scorecardViewModel.insertScorecard(scorecard)
+                    }
 
-                Toast.makeText(activity, "Scorecard created", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Scorecard created", Toast.LENGTH_SHORT).show()
 
-                callback?.onScorecardsCreated(newRound)
+                    newRound.hasScorecards = true
+                    roundViewModel.saveRound(newRound)
+
+                    callback?.onScorecardsCreated(newRound)
+                }
             }
             builder.setNegativeButton("No") { _, _ ->
 

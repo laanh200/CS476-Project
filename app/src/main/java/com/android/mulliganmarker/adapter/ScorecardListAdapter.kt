@@ -782,13 +782,13 @@ class ScorecardListAdapter:RecyclerView.Adapter<ScorecardListAdapter.MyViewHolde
     private fun parConversion(yardage: Int): Int {
 
         var par: Int = when (yardage) {
-            in 0..250 -> {
+            in 0..220 -> {
                 3
             }
-            in 251..470 -> {
+            in 221..450 -> {
                 4
             }
-            in 471..690 -> {
+            in 451..690 -> {
                 5
             }
             else -> {

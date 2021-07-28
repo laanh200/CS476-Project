@@ -18,5 +18,6 @@ data class Round(
         @PrimaryKey(autoGenerate = true) val round_id: Int,
         @ColumnInfo(index = true) val course_id: Int,
         var date: Date,
-        var inProgress: Boolean
+        var inProgress: Boolean,
+        var hasScorecards: Boolean
 )

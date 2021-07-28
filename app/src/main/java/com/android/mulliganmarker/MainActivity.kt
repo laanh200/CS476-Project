@@ -160,8 +160,14 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
     }
 
     override fun onRoundSelected(round: Round?) {
-        val fragment = ScoreKeepingFragment(round)
-        replaceCurrentFragment(fragment)
+        if(round!!.hasScorecards) {
+            val fragment = ScoreKeepingFragment(round)
+            replaceCurrentFragment(fragment)
+        }
+        else {
+            val fragment = NewScorecardFragment(round)
+            replaceCurrentFragment(fragment)
+        }
     }
 
     override fun onRoundCompleted() {

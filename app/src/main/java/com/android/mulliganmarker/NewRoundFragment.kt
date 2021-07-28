@@ -17,6 +17,7 @@ import com.android.mulliganmarker.viewmodel.PlayerViewModel
 import com.android.mulliganmarker.viewmodel.RoundViewModel
 import java.text.DateFormat
 import java.util.*
+import kotlin.concurrent.schedule
 
 private const val DIALOG_DATE = "DialogDate"
 private const val REQUEST_DATE = 0
@@ -117,12 +118,14 @@ class NewRoundFragment : Fragment(), CoursePickerFragment.Callbacks, DatePickerF
 
         //Check if the two important fields are blank
         if(!courseNotSelected && !dateNotSelected) {
-            val newRound = Round(0, courseId, date, true)
+            val newRound = Round(0, courseId, date, true, false)
             roundViewModel.insertRound(newRound)
 
-            Toast.makeText(activity, "Successfully started round!", Toast.LENGTH_SHORT).show()
+            Timer("StartingRound", false).schedule(1000) {
+                callback?.onRoundStarted(latestRound)
+            }
 
-            callback?.onRoundStarted(latestRound)
+            Toast.makeText(activity, "Successfully started round!", Toast.LENGTH_SHORT).show()
         }
         else {
             Toast.makeText(activity,"Failure in starting round. Course and date need to be selected.", Toast.LENGTH_SHORT).show()
