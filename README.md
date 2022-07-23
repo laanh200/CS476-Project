@@ -108,6 +108,9 @@ Course and Date pickers come up on first click, but not clickable until the focu
 *	Run advertisement at the bottom.
 *	The ability to export the scorecard into CSV.
 *	The ability to email or text scorecard to the player.
+* Handicap calculation.
+* Statistics screen.
+* Notifications to link to the rounds in progress. 
 
 
 ## License
