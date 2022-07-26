@@ -85,6 +85,11 @@ class MainActivity : AppCompatActivity(), BottomSheetFragment.Callbacks, NewPlay
                     val fragment = RoundHistoryListFragment()
                     replaceCurrentFragment(fragment)
                 }
+                R.id.statistics ->{
+                    drawer.closeDrawer(GravityCompat.START)
+                    val fragment = StatisticsFragment()
+                    replaceCurrentFragment(fragment)
+                }
             }
             true
         }

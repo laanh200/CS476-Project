@@ -10,5 +10,8 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         <item
             android:id="@+id/round_history"
             android:title="Round History"></item>
+        <item
+            android:id="@+id/statistics"
+            android:title="Statistics"></item>
     </group>
 </menu>

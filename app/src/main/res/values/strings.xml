@@ -49,4 +49,21 @@
 
     <string name="tee_box">Tee Box</string>
     <string name="tee_box_dropdown_hint">Select tee box: </string>
+
+    <string name="course">Course</string>
+    <string name="course_dropdown_hint">Select course: </string>
+
+    <string name="start_date">Start date</string>
+    <string name="end_date">End date</string>
+    <string name="holes">Holes</string>
+    <string name="pars">Pars</string>
+    <string name="birdies">Birdies</string>
+    <string name="eagles">Eagles</string>
+    <string name="avg_score_overall">Avg. Score Overall</string>
+    <string name="avg_score_front">Avg. Score Front 9</string>
+    <string name="avg_score_back">Avg. Score Back 9</string>
+    <string name="best_score_overall">Best Score Overall</string>
+    <string name="best_score_front">Best Score Front 9</string>
+    <string name="best_score_back">Best Score Back 9</string>
+    <string name="stat_placeholder">--</string>
 </resources>

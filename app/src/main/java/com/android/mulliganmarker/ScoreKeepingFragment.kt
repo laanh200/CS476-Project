@@ -105,6 +105,13 @@ class ScoreKeepingFragment(round: Round?) : Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setMessage("Are you sure this round is finished? You won't be able to make any further changes afterward.")
             builder.setPositiveButton("Yes") { _, _ ->
+                roundScorecards = adapter.getData()
+
+                // Save any changes to the scorecards in the database
+                for (scorecard in roundScorecards) {
+                    scorecardViewModel.saveScorecard(scorecard.scoreCard)
+                }
+
                 currentRound.inProgress = false
                 roundViewModel.saveRound(currentRound)
 

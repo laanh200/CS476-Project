@@ -9,7 +9,7 @@ import com.android.mulliganmarker.model.*
 
 private const val DATABASE_NAME = "mulligan-marker-database"
 
-@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 5, exportSchema = true)
+@Database(entities = [Round::class, Player::class, Scorecard::class, Course::class, TeeBox::class], version = 6, exportSchema = true)
 @TypeConverters(RoundTypeConverters::class)
 abstract class MulliganMarkerDatabase : RoomDatabase() {
 
@@ -40,7 +40,7 @@ abstract class MulliganMarkerDatabase : RoomDatabase() {
                                 MulliganMarkerDatabase::class.java,
                             DATABASE_NAME)
                         .createFromAsset("database/GolfCourses.db")
-                       // .fallbackToDestructiveMigration()
+                        //.fallbackToDestructiveMigration()
                         .build()
                 //Set the instance equal to the brand new created instance
                 INSTANCE = instance
