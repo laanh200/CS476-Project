@@ -12,20 +12,11 @@ interface ScorecardDAO {
 
     @Transaction
     @Query("SELECT * FROM ScorecardTable WHERE round_id = (:targetRoundID) ORDER BY score_card_id DESC")
-    fun getTargetScoreCards(targetRoundID: Int): LiveData<List<ScorecardWithData>>
+    fun getRoundScorecards(targetRoundID: Int): LiveData<List<ScorecardWithData>>
 
-    //SELECT * FROM ScorecardTable
-// INNER JOIN RoundTable ON RoundTable.round_id = round_id
-// WHERE player_id = (:playerId)
-// AND RoundTable.course_id = (:courseId)
-// AND RoundTable.date BETWEEN (:startDate) AND (:endDate)
-
-    /*
     @Transaction
-    @Query("SELECT * FROM ScorecardTable " +
-            "INNER JOIN RoundTable ON RoundTable.round_id = round_id " +
-            "WHERE player_id = (:playerId) AND RoundTable.course_id = (:courseId) AND RoundTable.date BETWEEN (:startDate) AND (:endDate)")
-    fun filterScorecards(playerId: Int, courseId: Int, startDate: Date, endDate: Date): LiveData<List<ScorecardWithData>>*/
+    @Query("SELECT * FROM ScorecardTable WHERE player_id = (:playerId)")
+    fun getPlayerScorecards(playerId: Int): LiveData<List<ScorecardWithData>>
 
     @Update
     fun updateScorecard(scorecard: Scorecard)

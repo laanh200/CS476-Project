@@ -82,7 +82,7 @@ class ScoreKeepingFragment(round: Round?) : Fragment() {
         )
 
         //Need to insert the round as the parameter for the get Target Score Cards function
-        scorecardViewModel.getTargetScoreCards(currentRound.round_id).observe(
+        scorecardViewModel.getRoundScorecards(currentRound.round_id).observe(
                 viewLifecycleOwner,
                 Observer {
                     Log.i(TAG, "This number of scorecards: ${it.size}")

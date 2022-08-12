@@ -14,7 +14,9 @@ class ScorecardRepository(application: Application) {
 
     private var scorecardDAO:ScorecardDAO = MulliganMarkerDatabase.getDatabase(application).scorecardDao()
 
-    fun getTargetScoreCards(targetRoundId: Int): LiveData<List<ScorecardWithData>> = scorecardDAO.getTargetScoreCards(targetRoundId)
+    fun getRoundScorecards(targetRoundId: Int): LiveData<List<ScorecardWithData>> = scorecardDAO.getRoundScorecards(targetRoundId)
+
+    fun getPlayerScorecards(playerId: Int): LiveData<List<ScorecardWithData>> = scorecardDAO.getPlayerScorecards(playerId)
 
     fun updateScorecard(scorecard: Scorecard) {
         CoroutineScope(Dispatchers.IO).launch {
