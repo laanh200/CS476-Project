@@ -9,11 +9,13 @@ import com.android.mulliganmarker.model.Scorecard
 class AddScorecardAdapter: RecyclerView.Adapter<AddScorecardAdapter.AddScorecardViewHolder>() {
 
     private var scorecardList = emptyList<Scorecard>()
+    private var playerList = emptyList<String>()
+    private var teeBoxList = emptyList<String>()
 
     class AddScorecardViewHolder(val binding: ScorecardCustomRowBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Scorecard) {
-            binding.scorecardItemPlayer.text = item.player_id.toString()
-            binding.scorecardItemTeeBox.text = item.tee_box_id.toString()
+        fun bind(item: Scorecard, player: String, teeBox: String) {
+            binding.scorecardItemPlayer.text = player
+            binding.scorecardItemTeeBox.text = teeBox
         }
     }
 
@@ -23,14 +25,18 @@ class AddScorecardAdapter: RecyclerView.Adapter<AddScorecardAdapter.AddScorecard
 
     override fun onBindViewHolder(holder: AddScorecardViewHolder, position: Int) {
         val currentScorecard = scorecardList[position]
-        holder.bind(currentScorecard)
+        val player = playerList[position]
+        val teeBox = teeBoxList[position]
+        holder.bind(currentScorecard, player, teeBox)
     }
 
     override fun getItemCount(): Int {
         return scorecardList.size
     }
 
-    fun setItems(itemList: List<Scorecard>) {
+    fun setItems(itemList: List<Scorecard>, playerList: List<String>, teeBoxList: List<String>) {
         scorecardList = itemList
+        this.playerList = playerList
+        this.teeBoxList = teeBoxList
     }
 }

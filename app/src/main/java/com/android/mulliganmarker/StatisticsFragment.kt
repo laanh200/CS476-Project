@@ -195,9 +195,14 @@ class StatisticsFragment : Fragment(), DatePickerFragment.Callbacks {
             //Calculate totals
             totalScores(scorecard)
 
-            front9Scores.add(getScoreFront9(scorecard))
-            back9Scores.add(getScoreBack9(scorecard))
-            overallScores.add(getScoreFront9(scorecard) + getScoreBack9(scorecard))
+            if(isValidFront9(scorecard))
+                front9Scores.add(getScoreFront9(scorecard))
+
+            if(isValidBack9(scorecard))
+                back9Scores.add(getScoreBack9(scorecard))
+
+            if(isValid18(scorecard))
+                overallScores.add(getScoreFront9(scorecard) + getScoreBack9(scorecard))
         }
 
         //Calculate average scores
@@ -441,19 +446,31 @@ class StatisticsFragment : Fragment(), DatePickerFragment.Callbacks {
         return score
     }
 
-    private fun validRound(scorecard: ScorecardWithData): Boolean {
-        // if the round was 9 holes
-        if((scorecard.scoreCard.hole1_score != null && scorecard.scoreCard.hole2_score != null && scorecard.scoreCard.hole3_score != null
+    private fun isValidFront9(scorecard: ScorecardWithData): Boolean {
+
+        if(scorecard.scoreCard.hole1_score != null && scorecard.scoreCard.hole2_score != null && scorecard.scoreCard.hole3_score != null
             && scorecard.scoreCard.hole4_score != null && scorecard.scoreCard.hole5_score != null && scorecard.scoreCard.hole6_score != null
-            && scorecard.scoreCard.hole7_score != null && scorecard.scoreCard.hole8_score != null && scorecard.scoreCard.hole9_score != null) ||
-            (scorecard.scoreCard.hole10_score != null && scorecard.scoreCard.hole11_score != null && scorecard.scoreCard.hole12_score != null
-                    && scorecard.scoreCard.hole13_score != null && scorecard.scoreCard.hole14_score != null && scorecard.scoreCard.hole15_score != null
-                    && scorecard.scoreCard.hole16_score != null && scorecard.scoreCard.hole17_score != null && scorecard.scoreCard.hole18_score != null))
+            && scorecard.scoreCard.hole7_score != null && scorecard.scoreCard.hole8_score != null && scorecard.scoreCard.hole9_score != null)
         {
             return true
         }
 
-        // if the round was 18 holes
+        return false
+    }
+
+    private fun isValidBack9(scorecard: ScorecardWithData): Boolean {
+        if(scorecard.scoreCard.hole10_score != null && scorecard.scoreCard.hole11_score != null && scorecard.scoreCard.hole12_score != null
+                    && scorecard.scoreCard.hole13_score != null && scorecard.scoreCard.hole14_score != null && scorecard.scoreCard.hole15_score != null
+                    && scorecard.scoreCard.hole16_score != null && scorecard.scoreCard.hole17_score != null && scorecard.scoreCard.hole18_score != null)
+        {
+            return true
+        }
+
+        return false
+    }
+
+    private fun isValid18(scorecard: ScorecardWithData): Boolean {
+
         if(scorecard.scoreCard.hole1_score != null && scorecard.scoreCard.hole2_score != null && scorecard.scoreCard.hole3_score != null
             && scorecard.scoreCard.hole4_score != null && scorecard.scoreCard.hole5_score != null && scorecard.scoreCard.hole6_score != null
             && scorecard.scoreCard.hole7_score != null && scorecard.scoreCard.hole8_score != null && scorecard.scoreCard.hole9_score != null

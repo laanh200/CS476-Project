@@ -59,6 +59,8 @@ class NewScorecardFragment(round: Round?):  Fragment() {
     private var playerList: List<Player> = emptyList()
     private var teeBoxList: List<TeeBox> = emptyList()
     private var scorecardList: MutableList<Scorecard> = arrayListOf()
+    private var playerNameList: MutableList<String> = arrayListOf()
+    private var teeBoxNameList: MutableList<String> = arrayListOf()
 
     private val newRound = round
 
@@ -115,6 +117,8 @@ class NewScorecardFragment(round: Round?):  Fragment() {
         binding.addScorecardBTN.setOnClickListener {
             var playerId = -1
             var teeBoxId = -1
+            var playerName = ""
+            var teeBoxName = ""
 
             // Custom dialog to select the player and tee box
             val builder = AlertDialog.Builder(requireContext())
@@ -132,6 +136,7 @@ class NewScorecardFragment(round: Round?):  Fragment() {
                 setOnSpinnerItemSelectedListener<Player> {
                     _, _, _, newItem ->
                     playerId = newItem.player_id
+                    playerName = newItem.first_name + " " + newItem.last_name
                 }
                 setItems(playerList)
                 getSpinnerRecyclerView().layoutManager = LinearLayoutManager(context)
@@ -144,6 +149,7 @@ class NewScorecardFragment(round: Round?):  Fragment() {
                 setOnSpinnerItemSelectedListener<TeeBox> {
                     _, _, _, newItem ->
                     teeBoxId = newItem.tee_box_id
+                    teeBoxName = newItem.name
                 }
                 setItems(teeBoxList)
                 getSpinnerRecyclerView().layoutManager = LinearLayoutManager(context)
@@ -159,9 +165,11 @@ class NewScorecardFragment(round: Round?):  Fragment() {
                             null, null, null, null, null, null, null, null, null,
                             null, null, null, null, null, null, null, null, null)
                     scorecardList.add(newScorecard)
+                    playerNameList.add(playerName)
+                    teeBoxNameList.add(teeBoxName)
 
                     // update the recycler view with the new scorecard
-                    adapter.setItems(scorecardList)
+                    adapter.setItems(scorecardList, playerNameList, teeBoxNameList)
                     adapter.notifyDataSetChanged()
                     Log.i(TAG, "Got scorecards ${scorecardList.size}")
                     binding.scorecardRecyclerView.adapter = adapter
